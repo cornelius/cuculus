@@ -3,7 +3,9 @@
  *
  * Copyright (C) 2008 Cornelius Schumacher <schumacher@kde.org>
  */
+
 #include "cuculus.h"
+
 #include "cuculusview.h"
 #include "settings.h"
 
@@ -20,36 +22,36 @@
 
 #include <KDE/KLocale>
 
-cuculus::cuculus()
+Cuculus::Cuculus()
     : KXmlGuiWindow(),
-      m_view(new cuculusView(this)),
       m_printer(0)
 {
-    // accept dnd
-    setAcceptDrops(true);
 
-    // tell the KXmlGuiWindow that this is indeed the main widget
-    setCentralWidget(m_view);
+  // accept dnd
+  setAcceptDrops(true);
 
-    // then, setup our actions
-    setupActions();
+  m_view = new CuculusView( this );
+  setCentralWidget(m_view);
 
-    // add a status bar
-    statusBar()->show();
+  // then, setup our actions
+  setupActions();
 
-    // a call to KXmlGuiWindow::setupGUI() populates the GUI
-    // with actions, using KXMLGUI.
-    // It also applies the saved mainwindow settings, if any, and ask the
-    // mainwindow to automatically save settings if changed: window size,
-    // toolbar position, icon size, etc.
-    setupGUI();
+  // add a status bar
+  statusBar()->show();
+
+  // a call to KXmlGuiWindow::setupGUI() populates the GUI
+  // with actions, using KXMLGUI.
+  // It also applies the saved mainwindow settings, if any, and ask the
+  // mainwindow to automatically save settings if changed: window size,
+  // toolbar position, icon size, etc.
+  setupGUI();
 }
 
-cuculus::~cuculus()
+Cuculus::~Cuculus()
 {
 }
 
-void cuculus::setupActions()
+void Cuculus::setupActions()
 {
     KStandardAction::openNew(this, SLOT(fileNew()), actionCollection());
     KStandardAction::quit(qApp, SLOT(closeAllWindows()), actionCollection());
@@ -62,17 +64,17 @@ void cuculus::setupActions()
     connect(custom, SIGNAL(triggered(bool)), m_view, SLOT(switchColors()));
 }
 
-void cuculus::fileNew()
+void Cuculus::fileNew()
 {
     // this slot is called whenever the File->New menu is selected,
     // the New shortcut is pressed (usually CTRL+N) or the New toolbar
     // button is clicked
 
     // create a new window
-    (new cuculus)->show();
+    (new Cuculus)->show();
 }
 
-void cuculus::optionsPreferences()
+void Cuculus::optionsPreferences()
 {
     // The preference dialog is derived from prefs_base.ui
     //

@@ -3,25 +3,31 @@
  *
  * Copyright (C) 2008 Cornelius Schumacher <schumacher@kde.org>
  */
+
 #include "cuculusview.h"
+
 #include "settings.h"
 
 #include <klocale.h>
-#include <QtGui/QLabel>
 
-cuculusView::cuculusView(QWidget *)
+#include <QtGui>
+
+CuculusView::CuculusView(QWidget *)
 {
-    ui_cuculusview_base.setupUi(this);
-    settingsChanged();
-    setAutoFillBackground(true);
+  QBoxLayout *topLayout = new QVBoxLayout( this );
+  
+  QLabel *label = new QLabel( "Hallo" );
+  topLayout->addWidget( label );
+
+  settingsChanged();
+  setAutoFillBackground(true);
 }
 
-cuculusView::~cuculusView()
+CuculusView::~CuculusView()
 {
-
 }
 
-void cuculusView::switchColors()
+void CuculusView::switchColors()
 {
     // switch the foreground/background colors of the label
     QColor color = Settings::col_background();
@@ -31,16 +37,8 @@ void cuculusView::switchColors()
     settingsChanged();
 }
 
-void cuculusView::settingsChanged()
+void CuculusView::settingsChanged()
 {
-    QPalette pal;
-    pal.setColor( QPalette::Window, Settings::col_background());
-    pal.setColor( QPalette::WindowText, Settings::col_foreground());
-    ui_cuculusview_base.kcfg_sillyLabel->setPalette( pal );
-
-    // i18n : internationalization
-    ui_cuculusview_base.kcfg_sillyLabel->setText( i18n("This project is %1 days old",Settings::val_time()) );
-    emit signalChangeStatusbar( i18n("Settings changed") );
 }
 
 #include "cuculusview.moc"

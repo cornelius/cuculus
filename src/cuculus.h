@@ -11,7 +11,7 @@
 
 #include "ui_prefs_base.h"
 
-class cuculusView;
+class CuculusView;
 class QPrinter;
 class KToggleAction;
 class KUrl;
@@ -24,34 +24,34 @@ class KUrl;
  * @author Cornelius Schumacher <schumacher@kde.org>
  * @version 0.1
  */
-class cuculus : public KXmlGuiWindow
+class Cuculus : public KXmlGuiWindow
 {
     Q_OBJECT
-public:
+  public:
     /**
      * Default Constructor
      */
-    cuculus();
+    Cuculus();
 
     /**
      * Default Destructor
      */
-    virtual ~cuculus();
+    virtual ~Cuculus();
 
-private slots:
+  private slots:
     void fileNew();
     void optionsPreferences();
 
-private:
+  private:
     void setupActions();
 
-private:
-    Ui::prefs_base ui_prefs_base ;
-    cuculusView *m_view;
+  private:
+    CuculusView *m_view;
+    Ui::prefs_base ui_prefs_base;
 
     QPrinter   *m_printer;
     KToggleAction *m_toolbarAction;
     KToggleAction *m_statusbarAction;
 };
 
-#endif // _CUCULUS_H_
+#endif

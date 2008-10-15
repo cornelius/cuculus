@@ -4,7 +4,7 @@ set(cuculus_SRCS
    cuculusview.cpp
  )
 
-kde4_add_ui_files(cuculus_SRCS cuculusview_base.ui prefs_base.ui)
+kde4_add_ui_files(cuculus_SRCS prefs_base.ui)
 
 kde4_add_kcfg_files(cuculus_SRCS settings.kcfgc )
 

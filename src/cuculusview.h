@@ -8,8 +8,6 @@
 
 #include <QtGui/QWidget>
 
-#include "ui_cuculusview_base.h"
-
 class QPainter;
 class KUrl;
 
@@ -23,24 +21,21 @@ class KUrl;
  * @version 0.1
  */
 
-class cuculusView : public QWidget, public Ui::cuculusview_base
+class CuculusView : public QWidget
 {
     Q_OBJECT
-public:
+  public:
     /**
      * Default constructor
      */
-    cuculusView(QWidget *parent);
+    CuculusView(QWidget *parent);
 
     /**
      * Destructor
      */
-    virtual ~cuculusView();
+    virtual ~CuculusView();
 
-private:
-    Ui::cuculusview_base ui_cuculusview_base;
-
-signals:
+  signals:
     /**
      * Use this signal to change the content of the statusbar
      */
@@ -51,9 +46,9 @@ signals:
      */
     void signalChangeCaption(const QString& text);
 
-private slots:
+  private slots:
     void switchColors();
     void settingsChanged();
 };
 
-#endif // cuculusVIEW_H
+#endif
