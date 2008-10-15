@@ -1,0 +1,425 @@
+http://twitter.com/statuses/friends_timeline.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<statuses type="array">
+<status>
+  <created_at>Sun Sep 21 20:39:11 +0000 2008</created_at>
+  <id>929644627</id>
+  <text>Funny: http://cartoonbox.slate.com/glennmccoy/2008/09/19/</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>15173651</id>
+    <name>Cornelius Schumacher</name>
+    <screen_name>cschum</screen_name>
+    <location>Erlangen, Germany</location>
+    <description></description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/55666600/longyearbyen_normal.jpg</profile_image_url>
+    <url>http://www.cornelius-schumacher.de</url>
+    <protected>false</protected>
+    <followers_count>37</followers_count>
+  </user>
+</status>
+<status>
+  <created_at>Sun Sep 21 19:00:34 +0000 2008</created_at>
+  <id>929564025</id>
+  <text>What's the war on moisture position on prescription medication that comes in liquid form?</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>13235832</id>
+    <name>Nat Friedman</name>
+    <screen_name>natfriedman</screen_name>
+    <location></location>
+    <description></description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/48671322/avatar_normal.jpg</profile_image_url>
+    <url>http://nat.org/</url>
+    <protected>false</protected>
+    <followers_count>619</followers_count>
+  </user>
+</status>
+<status>
+  <created_at>Sun Sep 21 17:25:45 +0000 2008</created_at>
+  <id>929483735</id>
+  <text>While I was in Croatia, the SUSE Studio demo kiosks were swamped at VMWorld... very encouraging to hear about the high level of interest.</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>13235832</id>
+    <name>Nat Friedman</name>
+    <screen_name>natfriedman</screen_name>
+    <location></location>
+    <description></description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/48671322/avatar_normal.jpg</profile_image_url>
+    <url>http://nat.org/</url>
+    <protected>false</protected>
+    <followers_count>619</followers_count>
+  </user>
+</status>
+<status>
+  <created_at>Sun Sep 21 15:39:55 +0000 2008</created_at>
+  <id>929396322</id>
+  <text>saw a rock opera version of the flying dutchmen last night - pretty good</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>8719472</id>
+    <name>Lydia Pintscher</name>
+    <screen_name>nightrose</screen_name>
+    <location>Germany</location>
+    <description>crazy Amarok girl</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/52487602/hacker_64x64_normal.png</profile_image_url>
+    <url>http://blog.lydiapintscher.de</url>
+    <protected>false</protected>
+    <followers_count>133</followers_count>
+  </user>
+</status>
+<status>
+  <created_at>Sun Sep 21 15:24:01 +0000 2008</created_at>
+  <id>929384164</id>
+  <text>Saw an old tour shirt last night and realised that 3 major goth/ebm/ind clubs on the east coast have closed in the past 5 years :(</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>15533183</id>
+    <name>Celeste Lyn Paul</name>
+    <screen_name>celestelynpaul</screen_name>
+    <location>Rockville, MD</location>
+    <description></description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/57216740/takochi_normal.gif</profile_image_url>
+    <url></url>
+    <protected>true</protected>
+    <followers_count>43</followers_count>
+  </user>
+</status>
+<status>
+  <created_at>Sun Sep 21 06:31:42 +0000 2008</created_at>
+  <id>929109011</id>
+  <text>grinding through the bugs</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>7768822</id>
+    <name>wstephenson</name>
+    <screen_name>wstephenson</screen_name>
+    <location>Nuernberg</location>
+    <description>With A Tiny Gasp, Will Expired On A Bed Of Sharpened Memory Leaks.</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/26173392/starquake_normal.png</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>65</followers_count>
+  </user>
+</status>
+<status>
+  <created_at>Sun Sep 21 06:12:32 +0000 2008</created_at>
+  <id>929099831</id>
+  <text>Travel plans: In Toronto 22nd/23rd, Provo 25th/26th, Nuremberg 29th/30th/1st, Prague 2nd/3rd, Bangalore 6th/7th/8th.  Then .de for a while.</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>13235832</id>
+    <name>Nat Friedman</name>
+    <screen_name>natfriedman</screen_name>
+    <location></location>
+    <description></description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/48671322/avatar_normal.jpg</profile_image_url>
+    <url>http://nat.org/</url>
+    <protected>false</protected>
+    <followers_count>619</followers_count>
+  </user>
+</status>
+<status>
+  <created_at>Sun Sep 21 05:51:31 +0000 2008</created_at>
+  <id>929089213</id>
+  <text>@natfriedman let me guess - a croatian island based bike rental business? ;)</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id>928601063</in_reply_to_status_id>
+  <in_reply_to_user_id>13235832</in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>7768822</id>
+    <name>wstephenson</name>
+    <screen_name>wstephenson</screen_name>
+    <location>Nuernberg</location>
+    <description>With A Tiny Gasp, Will Expired On A Bed Of Sharpened Memory Leaks.</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/26173392/starquake_normal.png</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>65</followers_count>
+  </user>
+</status>
+<status>
+  <created_at>Sat Sep 20 18:16:02 +0000 2008</created_at>
+  <id>928601063</id>
+  <text>An idea for a startup brewing in my head.</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>13235832</id>
+    <name>Nat Friedman</name>
+    <screen_name>natfriedman</screen_name>
+    <location></location>
+    <description></description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/48671322/avatar_normal.jpg</profile_image_url>
+    <url>http://nat.org/</url>
+    <protected>false</protected>
+    <followers_count>619</followers_count>
+  </user>
+</status>
+<status>
+  <created_at>Sat Sep 20 18:01:08 +0000 2008</created_at>
+  <id>928588825</id>
+  <text>Goodbye Maemo summit, I had a blast. Next stop: home.</text>
+  <source>&lt;a href="http://help.twitter.com/index.php?pg=kb.page&amp;id=75"&gt;txt&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>15376576</id>
+    <name>nearyd</name>
+    <screen_name>nearyd</screen_name>
+    <location>Lyon, France (usually)</location>
+    <description></description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/56441534/dave_and_sean_small_normal.jpg</profile_image_url>
+    <url>http://blogs.gnome.org/bolsh</url>
+    <protected>false</protected>
+    <followers_count>48</followers_count>
+  </user>
+</status>
+<status>
+  <created_at>Sat Sep 20 17:47:43 +0000 2008</created_at>
+  <id>928578067</id>
+  <text>Spent a week biking in the hilly islands off the Dalmatian coast of Croatia.  Two days off the bike and I already miss it!</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>13235832</id>
+    <name>Nat Friedman</name>
+    <screen_name>natfriedman</screen_name>
+    <location></location>
+    <description></description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/48671322/avatar_normal.jpg</profile_image_url>
+    <url>http://nat.org/</url>
+    <protected>false</protected>
+    <followers_count>619</followers_count>
+  </user>
+</status>
+<status>
+  <created_at>Sat Sep 20 15:00:37 +0000 2008</created_at>
+  <id>928435453</id>
+  <text>No heat in our wohnung; going to get some wood for the fireplace.</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>13235832</id>
+    <name>Nat Friedman</name>
+    <screen_name>natfriedman</screen_name>
+    <location></location>
+    <description></description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/48671322/avatar_normal.jpg</profile_image_url>
+    <url>http://nat.org/</url>
+    <protected>false</protected>
+    <followers_count>619</followers_count>
+  </user>
+</status>
+<status>
+  <created_at>Sat Sep 20 13:45:35 +0000 2008</created_at>
+  <id>928378954</id>
+  <text>Back in Munich.  It's winter here!</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>13235832</id>
+    <name>Nat Friedman</name>
+    <screen_name>natfriedman</screen_name>
+    <location></location>
+    <description></description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/48671322/avatar_normal.jpg</profile_image_url>
+    <url>http://nat.org/</url>
+    <protected>false</protected>
+    <followers_count>619</followers_count>
+  </user>
+</status>
+<status>
+  <created_at>Sat Sep 20 11:12:22 +0000 2008</created_at>
+  <id>928293046</id>
+  <text>Breakfast http://twitpic.com/cd07</text>
+  <source>&lt;a href="http://iconfactory.com/software/twitterrific"&gt;twitterrific&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>14246556</id>
+    <name>Frank Karlitschek</name>
+    <screen_name>fkarlitschek</screen_name>
+    <location>iPhone: 48.771492,9.183960</location>
+    <description></description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/54848001/k_normal.png</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>72</followers_count>
+  </user>
+</status>
+<status>
+  <created_at>Sat Sep 20 07:50:31 +0000 2008</created_at>
+  <id>928205770</id>
+  <text>Quim talking about Nokia's relationship with free software communities</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>15376576</id>
+    <name>nearyd</name>
+    <screen_name>nearyd</screen_name>
+    <location>Lyon, France (usually)</location>
+    <description></description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/56441534/dave_and_sean_small_normal.jpg</profile_image_url>
+    <url>http://blogs.gnome.org/bolsh</url>
+    <protected>false</protected>
+    <followers_count>48</followers_count>
+  </user>
+</status>
+<status>
+  <created_at>Sat Sep 20 06:54:56 +0000 2008</created_at>
+  <id>928181912</id>
+  <text>installing openSUSE11.1beta1, yay for saturday mornings</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>7768822</id>
+    <name>wstephenson</name>
+    <screen_name>wstephenson</screen_name>
+    <location>Nuernberg</location>
+    <description>With A Tiny Gasp, Will Expired On A Bed Of Sharpened Memory Leaks.</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/26173392/starquake_normal.png</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>65</followers_count>
+  </user>
+</status>
+<status>
+  <created_at>Sat Sep 20 05:08:32 +0000 2008</created_at>
+  <id>928129038</id>
+  <text>sushi out, rockband in ... great night out with friends.</text>
+  <source>&lt;a href="http://www.kde.org"&gt;KDE Twitter&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>7626542</id>
+    <name>aseigo</name>
+    <screen_name>aseigo</screen_name>
+    <location>Calgary, Canada</location>
+    <description>Canadian KDE hacker.</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/24645912/IMG_0419_normal.jpg</profile_image_url>
+    <url>http://aseigo.blogspot.com</url>
+    <protected>false</protected>
+    <followers_count>434</followers_count>
+  </user>
+</status>
+<status>
+  <created_at>Sat Sep 20 01:06:43 +0000 2008</created_at>
+  <id>927954088</id>
+  <text>the fader widget has received the necessary love. things are good again in the land of KDE Twitter.</text>
+  <source>&lt;a href="http://www.kde.org"&gt;KDE Twitter&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>7626542</id>
+    <name>aseigo</name>
+    <screen_name>aseigo</screen_name>
+    <location>Calgary, Canada</location>
+    <description>Canadian KDE hacker.</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/24645912/IMG_0419_normal.jpg</profile_image_url>
+    <url>http://aseigo.blogspot.com</url>
+    <protected>false</protected>
+    <followers_count>434</followers_count>
+  </user>
+</status>
+<status>
+  <created_at>Sat Sep 20 00:14:50 +0000 2008</created_at>
+  <id>927911585</id>
+  <text>the twitter plasmoid is nearly perfect now in trunk. VERY happy with it now; the fade widget needs love though.</text>
+  <source>&lt;a href="http://www.kde.org"&gt;KDE Twitter&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>7626542</id>
+    <name>aseigo</name>
+    <screen_name>aseigo</screen_name>
+    <location>Calgary, Canada</location>
+    <description>Canadian KDE hacker.</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/24645912/IMG_0419_normal.jpg</profile_image_url>
+    <url>http://aseigo.blogspot.com</url>
+    <protected>false</protected>
+    <followers_count>434</followers_count>
+  </user>
+</status>
+<status>
+  <created_at>Fri Sep 19 21:05:02 +0000 2008</created_at>
+  <id>927745377</id>
+  <text>#openSUSE marketing meeting on Tuesday, Sept. 23 @ 15:00 UTC: http://tinyurl.com/4xaygz</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <user>
+    <id>2276111</id>
+    <name>Joe Brockmeier</name>
+    <screen_name>jzb</screen_name>
+    <location>iPhone: 37.604263,-122.382095</location>
+    <description></description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/58073585/winslow_normal.png</profile_image_url>
+    <url>http://zonker.opensuse.org/</url>
+    <protected>false</protected>
+    <followers_count>219</followers_count>
+  </user>
+</status>
+</statuses>

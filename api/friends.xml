@@ -1,0 +1,236 @@
+http://twitter.com/statuses/friends.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<users type="array">
+<user>
+  <id>15533183</id>
+  <name>Celeste Lyn Paul</name>
+  <screen_name>celestelynpaul</screen_name>
+  <location>Rockville, MD</location>
+  <description></description>
+  <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/57216740/takochi_normal.gif</profile_image_url>
+  <url></url>
+  <protected>true</protected>
+  <followers_count>43</followers_count>
+  <status>
+    <created_at>Sun Sep 21 15:24:01 +0000 2008</created_at>
+    <id>929384164</id>
+    <text>Saw an old tour shirt last night and realised that 3 major goth/ebm/ind clubs on the east coast have closed in the past 5 years :(</text>
+    <source>web</source>
+    <truncated>false</truncated>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <favorited>false</favorited>
+  </status>
+</user>
+<user>
+  <id>7768822</id>
+  <name>wstephenson</name>
+  <screen_name>wstephenson</screen_name>
+  <location>Nuernberg</location>
+  <description>With A Tiny Gasp, Will Expired On A Bed Of Sharpened Memory Leaks.</description>
+  <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/26173392/starquake_normal.png</profile_image_url>
+  <url></url>
+  <protected>false</protected>
+  <followers_count>65</followers_count>
+  <status>
+    <created_at>Sat Sep 20 06:54:56 +0000 2008</created_at>
+    <id>928181912</id>
+    <text>installing openSUSE11.1beta1, yay for saturday mornings</text>
+    <source>web</source>
+    <truncated>false</truncated>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <favorited>false</favorited>
+  </status>
+</user>
+<user>
+  <id>15376576</id>
+  <name>nearyd</name>
+  <screen_name>nearyd</screen_name>
+  <location>Lyon, France (usually)</location>
+  <description></description>
+  <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/56441534/dave_and_sean_small_normal.jpg</profile_image_url>
+  <url>http://blogs.gnome.org/bolsh</url>
+  <protected>false</protected>
+  <followers_count>48</followers_count>
+  <status>
+    <created_at>Sat Sep 20 18:01:08 +0000 2008</created_at>
+    <id>928588825</id>
+    <text>Goodbye Maemo summit, I had a blast. Next stop: home.</text>
+    <source>&lt;a href="http://help.twitter.com/index.php?pg=kb.page&amp;id=75"&gt;txt&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <favorited>false</favorited>
+  </status>
+</user>
+<user>
+  <id>14246556</id>
+  <name>Frank Karlitschek</name>
+  <screen_name>fkarlitschek</screen_name>
+  <location>iPhone: 48.771492,9.183960</location>
+  <description></description>
+  <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/54848001/k_normal.png</profile_image_url>
+  <url></url>
+  <protected>false</protected>
+  <followers_count>72</followers_count>
+  <status>
+    <created_at>Sat Sep 20 11:12:22 +0000 2008</created_at>
+    <id>928293046</id>
+    <text>Breakfast http://twitpic.com/cd07</text>
+    <source>&lt;a href="http://iconfactory.com/software/twitterrific"&gt;twitterrific&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <favorited>false</favorited>
+  </status>
+</user>
+<user>
+  <id>2276111</id>
+  <name>Joe Brockmeier</name>
+  <screen_name>jzb</screen_name>
+  <location>iPhone: 37.604263,-122.382095</location>
+  <description></description>
+  <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/58073585/winslow_normal.png</profile_image_url>
+  <url>http://zonker.opensuse.org/</url>
+  <protected>false</protected>
+  <followers_count>219</followers_count>
+  <status>
+    <created_at>Fri Sep 19 21:05:02 +0000 2008</created_at>
+    <id>927745377</id>
+    <text>#openSUSE marketing meeting on Tuesday, Sept. 23 @ 15:00 UTC: http://tinyurl.com/4xaygz</text>
+    <source>web</source>
+    <truncated>false</truncated>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <favorited>false</favorited>
+  </status>
+</user>
+<user>
+  <id>14816103</id>
+  <name>jonobacon</name>
+  <screen_name>jonobacon</screen_name>
+  <location>Wolverhampton</location>
+  <description></description>
+  <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/54335345/jono_normal.png</profile_image_url>
+  <url></url>
+  <protected>false</protected>
+  <followers_count>336</followers_count>
+  <status>
+    <created_at>Wed Sep 17 09:01:07 +0000 2008</created_at>
+    <id>924401333</id>
+    <text>Birthday today.</text>
+    <source>web</source>
+    <truncated>false</truncated>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <favorited>false</favorited>
+  </status>
+</user>
+<user>
+  <id>8719472</id>
+  <name>Lydia Pintscher</name>
+  <screen_name>nightrose</screen_name>
+  <location>Germany</location>
+  <description>crazy Amarok girl</description>
+  <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/52487602/hacker_64x64_normal.png</profile_image_url>
+  <url>http://blog.lydiapintscher.de</url>
+  <protected>false</protected>
+  <followers_count>133</followers_count>
+  <status>
+    <created_at>Sun Sep 21 15:39:55 +0000 2008</created_at>
+    <id>929396322</id>
+    <text>saw a rock opera version of the flying dutchmen last night - pretty good</text>
+    <source>web</source>
+    <truncated>false</truncated>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <favorited>false</favorited>
+  </status>
+</user>
+<user>
+  <id>7668782</id>
+  <name>sebasje</name>
+  <screen_name>sebasje</screen_name>
+  <location>Nijmegen / NL</location>
+  <description>Gearhead</description>
+  <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/25126422/sebas-park_normal.png</profile_image_url>
+  <url>http://vizZzion.org</url>
+  <protected>false</protected>
+  <followers_count>69</followers_count>
+  <status>
+    <created_at>Fri Aug 15 09:17:00 +0000 2008</created_at>
+    <id>888298258</id>
+    <text>Last day at Akademy - email, sqo-oss work, wrapping up ...</text>
+    <source>web</source>
+    <truncated>false</truncated>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <favorited>false</favorited>
+  </status>
+</user>
+<user>
+  <id>7626542</id>
+  <name>aseigo</name>
+  <screen_name>aseigo</screen_name>
+  <location>Calgary, Canada</location>
+  <description>Canadian KDE hacker.</description>
+  <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/24645912/IMG_0419_normal.jpg</profile_image_url>
+  <url>http://aseigo.blogspot.com</url>
+  <protected>false</protected>
+  <followers_count>434</followers_count>
+  <status>
+    <created_at>Sat Sep 20 05:08:32 +0000 2008</created_at>
+    <id>928129038</id>
+    <text>sushi out, rockband in ... great night out with friends.</text>
+    <source>&lt;a href="http://www.kde.org"&gt;KDE Twitter&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <favorited>false</favorited>
+  </status>
+</user>
+<user>
+  <id>13235832</id>
+  <name>Nat Friedman</name>
+  <screen_name>natfriedman</screen_name>
+  <location></location>
+  <description></description>
+  <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/48671322/avatar_normal.jpg</profile_image_url>
+  <url>http://nat.org/</url>
+  <protected>false</protected>
+  <followers_count>619</followers_count>
+  <status>
+    <created_at>Sun Sep 21 06:12:32 +0000 2008</created_at>
+    <id>929099831</id>
+    <text>Travel plans: In Toronto 22nd/23rd, Provo 25th/26th, Nuremberg 29th/30th/1st, Prague 2nd/3rd, Bangalore 6th/7th/8th.  Then .de for a while.</text>
+    <source>web</source>
+    <truncated>false</truncated>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <favorited>false</favorited>
+  </status>
+</user>
+<user>
+  <id>14171126</id>
+  <name>Jonathan Weiss</name>
+  <screen_name>jweiss</screen_name>
+  <location>Berlin, Germany</location>
+  <description>Rails/Ruby consultant from Berlin. Agile/XP, Scaling, Refactoring, OpenBSD, ...</description>
+  <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/51860772/Picture_1_normal.png</profile_image_url>
+  <url>http://blog.innerewut.de</url>
+  <protected>false</protected>
+  <followers_count>159</followers_count>
+  <status>
+    <created_at>Sun Sep 21 14:47:12 +0000 2008</created_at>
+    <id>929355865</id>
+    <text>@headius 1.8.7 is the child from hell. I can't understand why we need a non-compatible release full with 1.9 features in the stable branch</text>
+    <source>&lt;a href="http://www.twhirl.org/"&gt;twhirl&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <in_reply_to_status_id>929347735</in_reply_to_status_id>
+    <in_reply_to_user_id>9989362</in_reply_to_user_id>
+    <favorited>false</favorited>
+  </status>
+</user>
+</users>
