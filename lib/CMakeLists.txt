@@ -2,7 +2,8 @@ set(cuculusclient_SRCS
    status.cpp
    statusparser.cpp
    statuslistjob.cpp
- )
+   twitterapi.cpp
+)
 
 kde4_add_library(cuculusclient SHARED ${cuculusclient_SRCS})
 set_target_properties(cuculusclient PROPERTIES VERSION ${KDE_GENERIC_LIB_VERSION} SOVERSION ${KDE_GENERIC_LIB_SOVERSION})
