@@ -10,15 +10,19 @@
 
 #include <klocale.h>
 
-#include <QtGui>
-
 CuculusView::CuculusView(QWidget *)
 {
   QBoxLayout *topLayout = new QVBoxLayout( this );
-  
-  QLabel *label = new QLabel( "Hallo" );
-  topLayout->addWidget( label );
 
+  m_tweetEdit = new QTextEdit;
+  topLayout->addWidget( m_tweetEdit );
+  
+  for( int i = 0; i < 5; ++i ) {
+    TweetView *view = new TweetView;
+    topLayout->addWidget( view );
+    m_tweetViews.append( view );
+  }
+  
   settingsChanged();
   setAutoFillBackground(true);
 }
@@ -29,12 +33,12 @@ CuculusView::~CuculusView()
 
 void CuculusView::switchColors()
 {
-    // switch the foreground/background colors of the label
-    QColor color = Settings::col_background();
-    Settings::setCol_background( Settings::col_foreground() );
-    Settings::setCol_foreground( color );
+  // switch the foreground/background colors of the label
+  QColor color = Settings::col_background();
+  Settings::setCol_background( Settings::col_foreground() );
+  Settings::setCol_foreground( color );
 
-    settingsChanged();
+  settingsChanged();
 }
 
 void CuculusView::settingsChanged()

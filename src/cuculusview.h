@@ -6,9 +6,10 @@
 #ifndef CUCULUSVIEW_H
 #define CUCULUSVIEW_H
 
-#include <QtGui/QWidget>
+#include "tweetview.h"
 
-class QPainter;
+#include <QtGui>
+
 class KUrl;
 
 /**
@@ -49,6 +50,10 @@ class CuculusView : public QWidget
   private slots:
     void switchColors();
     void settingsChanged();
+
+  private:
+    QTextEdit *m_tweetEdit;
+    QList<TweetView *> m_tweetViews;
 };
 
 #endif

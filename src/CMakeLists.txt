@@ -2,6 +2,7 @@ set(cuculus_SRCS
    cuculus.cpp
    main.cpp
    cuculusview.cpp
+   tweetview.cpp
  )
 
 kde4_add_ui_files(cuculus_SRCS prefs_base.ui)

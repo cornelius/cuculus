@@ -39,7 +39,6 @@ class Cuculus : public KXmlGuiWindow
     virtual ~Cuculus();
 
   private slots:
-    void fileNew();
     void optionsPreferences();
 
   private:

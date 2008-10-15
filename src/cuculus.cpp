@@ -36,9 +36,6 @@ Cuculus::Cuculus()
   // then, setup our actions
   setupActions();
 
-  // add a status bar
-  statusBar()->show();
-
   // a call to KXmlGuiWindow::setupGUI() populates the GUI
   // with actions, using KXMLGUI.
   // It also applies the saved mainwindow settings, if any, and ask the
@@ -53,7 +50,6 @@ Cuculus::~Cuculus()
 
 void Cuculus::setupActions()
 {
-    KStandardAction::openNew(this, SLOT(fileNew()), actionCollection());
     KStandardAction::quit(qApp, SLOT(closeAllWindows()), actionCollection());
 
     KStandardAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
@@ -62,16 +58,6 @@ void Cuculus::setupActions()
     KAction *custom = new KAction(KIcon("colorize"), i18n("Swi&tch Colors"), this);
     actionCollection()->addAction( QLatin1String("switch_action"), custom );
     connect(custom, SIGNAL(triggered(bool)), m_view, SLOT(switchColors()));
-}
-
-void Cuculus::fileNew()
-{
-    // this slot is called whenever the File->New menu is selected,
-    // the New shortcut is pressed (usually CTRL+N) or the New toolbar
-    // button is clicked
-
-    // create a new window
-    (new Cuculus)->show();
 }
 
 void Cuculus::optionsPreferences()
