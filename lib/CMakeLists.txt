@@ -3,6 +3,7 @@ set(cuculusclient_SRCS
    statusparser.cpp
    statuslistjob.cpp
    twitterapi.cpp
+   postjob.cpp
 )
 
 kde4_add_library(cuculusclient SHARED ${cuculusclient_SRCS})

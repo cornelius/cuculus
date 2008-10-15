@@ -16,6 +16,7 @@ CuculusView::CuculusView(QWidget *)
 {
   QBoxLayout *topLayout = new QVBoxLayout( this );
 
+
   QBoxLayout *countLayout = new QHBoxLayout;
   topLayout->addLayout( countLayout );
 
@@ -27,24 +28,32 @@ CuculusView::CuculusView(QWidget *)
   m_countLabel = new QLabel;
   countLayout->addWidget( m_countLabel );
 
+
   m_tweetEdit = new QTextEdit;
   topLayout->addWidget( m_tweetEdit );
   connect( m_tweetEdit, SIGNAL( textChanged() ), SLOT( updateEditCount() ) );
+
+  QPushButton *button = new QPushButton( "Update" );
+  topLayout->addWidget( button );
+  connect( button, SIGNAL( clicked() ), SLOT( sendTweet() ) );
+
 
   QBoxLayout *updateLayout = new QHBoxLayout;
   topLayout->addLayout( updateLayout );
   
   updateLayout->addStretch( 1 );
 
-  QPushButton *button = new QPushButton( "Update" );
+  button = new QPushButton( "Get latest tweets" );
   updateLayout->addWidget( button );
   connect( button, SIGNAL( clicked() ), SLOT( updateTimeline() ) );
+
   
   for( int i = 0; i < 5; ++i ) {
     TweetView *view = new TweetView;
     topLayout->addWidget( view );
     m_tweetViews.append( view );
   }
+
   
   updateEditCount();
   
@@ -95,6 +104,29 @@ void CuculusView::slotResult( KJob *j )
       ++i;
       if ( i >= m_tweetViews.size() ) break;
     }
+  }
+}
+
+void CuculusView::sendTweet()
+{
+  QString text = m_tweetEdit->toPlainText();
+
+  qDebug() << "SEND" << text;
+
+  Cuculus::PostJob *job = Cuculus::TwitterApi::postUpdate( text );
+  connect( job, SIGNAL( result( KJob * ) ),
+    SLOT( slotSendTweetResult( KJob * ) ) );
+}
+
+void CuculusView::slotSendTweetResult( KJob *j )
+{
+  Cuculus::PostJob *job = static_cast<Cuculus::PostJob *>( j );
+  
+  if ( job->error() ) {
+    qDebug() << "ERROR" << job->errorText();
+  } else {
+    qDebug() << "SUCCESS SENDING TWEET";
+    updateTimeline();
   }
 }
 

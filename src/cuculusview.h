@@ -52,8 +52,10 @@ class CuculusView : public QWidget
   protected slots:
     void updateEditCount();
     void updateTimeline();
+    void sendTweet();
 
     void slotResult( KJob *j );
+    void slotSendTweetResult( KJob *j );
 
   private slots:
     void switchColors();

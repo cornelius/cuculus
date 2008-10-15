@@ -31,6 +31,21 @@ StatusListJob *TwitterApi::requestFriendsTimeline()
   return doRequestStatusList( url );
 }
 
+PostJob *TwitterApi::postUpdate( const QString &message )
+{
+  // FIXME: Properly escape message
+
+  PostJob *job = new PostJob();
+
+  KUrl url = createUrl( "statuses/update.xml" );
+  job->setUrl( url );
+  job->setData( "status", message );
+  
+  job->start();
+  return job;
+}
+
+
 KUrl TwitterApi::createUrl( const QString &path )
 {
   KUrl url( "http://twitter.com/" );
