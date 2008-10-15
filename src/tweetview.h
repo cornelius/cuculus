@@ -28,6 +28,10 @@ class TweetView : public QWidget
   public:
     TweetView();
 
+    void setStatus( const QString & );
+
+  private:
+    QLabel *m_label;
 };
 
 #endif

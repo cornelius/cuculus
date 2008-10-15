@@ -11,7 +11,7 @@ kde4_add_kcfg_files(cuculus_SRCS settings.kcfgc )
 
 kde4_add_executable(cuculus ${cuculus_SRCS})
 
-target_link_libraries(cuculus ${KDE4_KDEUI_LIBS} )
+target_link_libraries(cuculus cuculusclient ${KDE4_KDEUI_LIBS} )
 
 install(TARGETS cuculus DESTINATION ${BIN_INSTALL_DIR} )
 

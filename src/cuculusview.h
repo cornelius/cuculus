@@ -8,6 +8,8 @@
 
 #include "tweetview.h"
 
+#include <kjob.h>
+
 #include <QtGui>
 
 class KUrl;
@@ -49,6 +51,9 @@ class CuculusView : public QWidget
 
   protected slots:
     void updateEditCount();
+    void updateTimeline();
+
+    void slotResult( KJob *j );
 
   private slots:
     void switchColors();

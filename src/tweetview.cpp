@@ -32,6 +32,11 @@ TweetView::TweetView()
   QString picPath = KStandardDirs::locate( "appdata", "attica_person.png" );
   label->setPixmap( QPixmap( picPath ) );
 
-  label = new QLabel( "This will be a tweet." );
-  topLayout->addWidget( label ); 
+  m_label = new QLabel( "This will be a tweet." );
+  topLayout->addWidget( m_label ); 
+}
+
+void TweetView::setStatus( const QString &status )
+{
+  m_label->setText( status );
 }

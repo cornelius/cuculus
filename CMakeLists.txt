@@ -3,7 +3,7 @@ project(cuculus)
 find_package(KDE4 REQUIRED)
 include (KDE4Defaults)
 
-include_directories( ${KDE4_INCLUDES} ${QT_INCLUDES} )
+include_directories( ${KDE4_INCLUDES} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR}/lib )
 
 add_subdirectory( doc )
 add_subdirectory( lib )

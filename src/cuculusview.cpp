@@ -8,6 +8,8 @@
 
 #include "settings.h"
 
+#include "twitterapi.h"
+
 #include <klocale.h>
 
 CuculusView::CuculusView(QWidget *)
@@ -28,6 +30,15 @@ CuculusView::CuculusView(QWidget *)
   m_tweetEdit = new QTextEdit;
   topLayout->addWidget( m_tweetEdit );
   connect( m_tweetEdit, SIGNAL( textChanged() ), SLOT( updateEditCount() ) );
+
+  QBoxLayout *updateLayout = new QHBoxLayout;
+  topLayout->addLayout( updateLayout );
+  
+  updateLayout->addStretch( 1 );
+
+  QPushButton *button = new QPushButton( "Update" );
+  updateLayout->addWidget( button );
+  connect( button, SIGNAL( clicked() ), SLOT( updateTimeline() ) );
   
   for( int i = 0; i < 5; ++i ) {
     TweetView *view = new TweetView;
@@ -63,6 +74,28 @@ void CuculusView::updateEditCount()
 {
   m_countLabel->setText(
     QString::number( 140 - m_tweetEdit->toPlainText().length() ) );
+}
+
+void CuculusView::updateTimeline()
+{
+  Cuculus::StatusListJob *job = Cuculus::TwitterApi::requestFriendsTimeline();
+  connect( job, SIGNAL( result( KJob * ) ), SLOT( slotResult( KJob * ) ) );
+}
+
+void CuculusView::slotResult( KJob *j )
+{
+  if ( j->error() ) {
+    qDebug() << "Error" << j->errorText();
+  } else {
+    Cuculus::StatusListJob *job = static_cast<Cuculus::StatusListJob *>( j );
+    int i = 0;
+    foreach( Cuculus::Status status, job->statusList() ) {
+      qDebug() << "STATUS" << status.text();
+      m_tweetViews[ i ]->setStatus( status.text() );
+      ++i;
+      if ( i >= m_tweetViews.size() ) break;
+    }
+  }
 }
 
 #include "cuculusview.moc"
