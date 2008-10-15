@@ -47,11 +47,15 @@ class CuculusView : public QWidget
      */
     void signalChangeCaption(const QString& text);
 
+  protected slots:
+    void updateEditCount();
+
   private slots:
     void switchColors();
     void settingsChanged();
 
   private:
+    QLabel *m_countLabel;
     QTextEdit *m_tweetEdit;
     QList<TweetView *> m_tweetViews;
 };

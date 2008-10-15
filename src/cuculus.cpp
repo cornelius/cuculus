@@ -26,10 +26,6 @@ Cuculus::Cuculus()
     : KXmlGuiWindow(),
       m_printer(0)
 {
-
-  // accept dnd
-  setAcceptDrops(true);
-
   m_view = new CuculusView( this );
   setCentralWidget(m_view);
 
