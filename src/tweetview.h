@@ -21,14 +21,20 @@
 #ifndef TWEETVIEW_H
 #define TWEETVIEW_H
 
+#include "status.h"
+
 #include <QtGui>
+
+using namespace Cuculus;
 
 class TweetView : public QWidget
 {
   public:
     TweetView();
 
-    void setStatus( const QString & );
+    void setStatus( const Status & );
+
+    QString timeAgoInWords( const QDateTime &dt );
 
   private:
     QLabel *m_label;

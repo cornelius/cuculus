@@ -100,7 +100,7 @@ void CuculusView::slotResult( KJob *j )
     int i = 0;
     foreach( Cuculus::Status status, job->statusList() ) {
       qDebug() << "STATUS" << status.text();
-      m_tweetViews[ i ]->setStatus( status.text() );
+      m_tweetViews[ i ]->setStatus( status );
       ++i;
       if ( i >= m_tweetViews.size() ) break;
     }

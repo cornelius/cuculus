@@ -48,8 +48,10 @@ Status::List StatusParser::parseList( const QString &xmlString )
           if ( xml.name() == "text" ) {
             status.setText( xml.readElementText() );
           } else if ( xml.name() == "created_at" ) {
+            // Format: Fri Oct 24 18:46:28 +0000 2008
             QString timestampString = xml.readElementText();
-            QDateTime timestamp = QDateTime::fromString( timestampString );
+            QDateTime timestamp = QDateTime::fromString( timestampString,
+               "ddd MMM d h:mm:ss +0000 yyyy");
             status.setCreatedAt( timestamp );
           } else if ( xml.name() == "source" ) {
             status.setSource( xml.readElementText() );

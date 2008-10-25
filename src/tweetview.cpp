@@ -36,7 +36,23 @@ TweetView::TweetView()
   topLayout->addWidget( m_label ); 
 }
 
-void TweetView::setStatus( const QString &status )
+void TweetView::setStatus( const Cuculus::Status &status )
 {
-  m_label->setText( status );
+  QString txt = "<qt>";
+  
+  txt += status.text();
+  txt += "<br/>";
+  txt += "<em>";
+  txt += timeAgoInWords( status.createdAt() );
+  txt += " from " + status.source();
+  txt += "</em>";
+
+  txt += "</qt>";
+
+  m_label->setText( txt );
+}
+
+QString TweetView::timeAgoInWords( const QDateTime &dt )
+{
+  return dt.toString();
 }
