@@ -51,6 +51,8 @@ class CuculusView : public QWidget
 
   protected slots:
     void updateEditCount();
+    void checkUpdateButton();
+
     void updateTimeline();
     void sendTweet();
 
@@ -63,6 +65,7 @@ class CuculusView : public QWidget
 
   private:
     QLabel *m_countLabel;
+    QPushButton *m_updateButton;
     QTextEdit *m_tweetEdit;
     QList<TweetView *> m_tweetViews;
 };

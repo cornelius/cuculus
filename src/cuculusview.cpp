@@ -32,10 +32,11 @@ CuculusView::CuculusView(QWidget *)
   m_tweetEdit = new QTextEdit;
   topLayout->addWidget( m_tweetEdit );
   connect( m_tweetEdit, SIGNAL( textChanged() ), SLOT( updateEditCount() ) );
+  connect( m_tweetEdit, SIGNAL( textChanged() ), SLOT( checkUpdateButton() ) );
 
-  QPushButton *button = new QPushButton( "Update" );
-  topLayout->addWidget( button );
-  connect( button, SIGNAL( clicked() ), SLOT( sendTweet() ) );
+  m_updateButton = new QPushButton( "Update" );
+  topLayout->addWidget( m_updateButton );
+  connect( m_updateButton, SIGNAL( clicked() ), SLOT( sendTweet() ) );
 
 
   QBoxLayout *updateLayout = new QHBoxLayout;
@@ -43,7 +44,7 @@ CuculusView::CuculusView(QWidget *)
   
   updateLayout->addStretch( 1 );
 
-  button = new QPushButton( "Get latest tweets" );
+  QPushButton *button = new QPushButton( "Get latest tweets" );
   updateLayout->addWidget( button );
   connect( button, SIGNAL( clicked() ), SLOT( updateTimeline() ) );
 
@@ -56,6 +57,7 @@ CuculusView::CuculusView(QWidget *)
 
   
   updateEditCount();
+  checkUpdateButton();
   
   settingsChanged();
   setAutoFillBackground(true);
@@ -83,6 +85,11 @@ void CuculusView::updateEditCount()
 {
   m_countLabel->setText(
     QString::number( 140 - m_tweetEdit->toPlainText().length() ) );
+}
+
+void CuculusView::checkUpdateButton()
+{
+  m_updateButton->setEnabled( !m_tweetEdit->toPlainText().isEmpty() );
 }
 
 void CuculusView::updateTimeline()
