@@ -22,6 +22,7 @@
 #include "tweetview.h"
 
 #include "kstandarddirs.h"
+#include "klocale.h"
 
 TweetView::TweetView()
 {
@@ -33,7 +34,7 @@ TweetView::TweetView()
   label->setPixmap( QPixmap( picPath ) );
 
   m_label = new QLabel( "This will be a tweet." );
-  topLayout->addWidget( m_label ); 
+  topLayout->addWidget( m_label, 1 ); 
 }
 
 void TweetView::setStatus( const Cuculus::Status &status )
@@ -54,5 +55,25 @@ void TweetView::setStatus( const Cuculus::Status &status )
 
 QString TweetView::timeAgoInWords( const QDateTime &dt )
 {
-  return dt.toString();
+  QString txt;
+
+  QDateTime now = QDateTime::currentDateTime();
+
+  int daysAgo = dt.daysTo( now );
+  if ( daysAgo == 0 ) {
+    int minutesAgo = dt.secsTo( now ) / 60;
+    if ( minutesAgo == 0 ) {
+      txt = i18n("Now");
+    } else if ( minutesAgo < 60 ) {
+      txt = i18n("%1 minutes ago").arg( minutesAgo );
+    } else {
+      txt = i18n("Today %1").arg( dt.time().toString( "h:mm" ) );
+    }
+  } else if ( daysAgo == 1 ) {
+    txt = i18n("Yesterday %1").arg( dt.time().toString() );     
+  } else {
+    txt = i18n("%1 days ago").arg( daysAgo );
+  }
+
+  return txt;
 }
