@@ -21,6 +21,8 @@
 
 #include "statusparser.h"
 
+#include "userparser.h"
+
 #include <QXmlStreamReader>
 
 using namespace Cuculus;
@@ -55,6 +57,10 @@ Status::List StatusParser::parseList( const QString &xmlString )
             status.setCreatedAt( timestamp );
           } else if ( xml.name() == "source" ) {
             status.setSource( xml.readElementText() );
+          } else if ( xml.name() == "user" ) {
+            UserParser *parser = new UserParser();
+            User user = parser->parse( xml );
+            status.setUser( user );
           }
         }
 

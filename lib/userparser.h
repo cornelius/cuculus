@@ -18,51 +18,23 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301,
     USA.
 */
+#ifndef CUCULUS_USERPARSER_H
+#define CUCULUS_USERPARSER_H
 
-#include "status.h"
+#include "user.h"
 
-using namespace Cuculus;
+class QXmlStreamReader;
 
-Status::Status()
+namespace Cuculus {
+
+class UserParser
 {
+  public:
+    UserParser();
+
+    User parse( QXmlStreamReader &xml );
+};
+
 }
 
-void Status::setText( const QString &u )
-{
-  m_text = u;
-}
-
-QString Status::text() const
-{
-  return m_text;
-}
-
-void Status::setCreatedAt( const QDateTime &d )
-{
-  m_createdAt = d;
-}
-
-QDateTime Status::createdAt() const
-{
-  return m_createdAt;
-}
-
-void Status::setSource( const QString &c )
-{
-  m_source = c;
-}
-
-QString Status::source() const
-{
-  return m_source;
-}
-
-void Status::setUser( const User &u )
-{
-  m_user = u;
-}
-
-User Status::user() const
-{
-  return m_user;
-}
+#endif

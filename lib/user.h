@@ -18,51 +18,44 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301,
     USA.
 */
+#ifndef CUCULUS_USER_H
+#define CUCULUS_USER_H
 
-#include "status.h"
+#include "cuculusclient_export.h"
 
-using namespace Cuculus;
+#include <kurl.h>
 
-Status::Status()
+#include <QtCore>
+#include <QPixmap>
+
+namespace Cuculus {
+
+class CUCULUS_EXPORT User
 {
+  public:
+    typedef QList<User> List;
+  
+    User();
+
+    void setId( const QString & );
+    QString id() const;
+
+    void setName( const QString & );
+    QString name() const;
+
+    void setScreenName( const QString & );
+    QString screenName() const;
+
+    void setImageUrl( const KUrl & );
+    KUrl imageUrl() const;
+
+  private:
+    QString m_id;
+    QString m_name;
+    QString m_screenName;
+    KUrl m_imageUrl;
+};
+
 }
 
-void Status::setText( const QString &u )
-{
-  m_text = u;
-}
-
-QString Status::text() const
-{
-  return m_text;
-}
-
-void Status::setCreatedAt( const QDateTime &d )
-{
-  m_createdAt = d;
-}
-
-QDateTime Status::createdAt() const
-{
-  return m_createdAt;
-}
-
-void Status::setSource( const QString &c )
-{
-  m_source = c;
-}
-
-QString Status::source() const
-{
-  return m_source;
-}
-
-void Status::setUser( const User &u )
-{
-  m_user = u;
-}
-
-User Status::user() const
-{
-  return m_user;
-}
+#endif

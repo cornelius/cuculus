@@ -19,50 +19,37 @@
     USA.
 */
 
-#include "status.h"
+#include "userparser.h"
+
+#include <QXmlStreamReader>
 
 using namespace Cuculus;
 
-Status::Status()
+UserParser::UserParser()
 {
 }
 
-void Status::setText( const QString &u )
+User UserParser::parse( QXmlStreamReader &xml )
 {
-  m_text = u;
-}
-
-QString Status::text() const
-{
-  return m_text;
-}
-
-void Status::setCreatedAt( const QDateTime &d )
-{
-  m_createdAt = d;
-}
-
-QDateTime Status::createdAt() const
-{
-  return m_createdAt;
-}
-
-void Status::setSource( const QString &c )
-{
-  m_source = c;
-}
-
-QString Status::source() const
-{
-  return m_source;
-}
-
-void Status::setUser( const User &u )
-{
-  m_user = u;
-}
-
-User Status::user() const
-{
-  return m_user;
+  User user;
+  
+  while ( !xml.atEnd() ) {
+    xml.readNext();
+    
+    if ( xml.isStartElement() ) {
+      if ( xml.name() == "id" ) {
+        user.setId( xml.readElementText() );
+      } else if ( xml.name() == "name" ) {
+        user.setName( xml.readElementText() );
+      } else if ( xml.name() == "screen_name" ) {
+        user.setScreenName( xml.readElementText() );
+      } else if ( xml.name() == "profile_image_url" ) {
+        user.setImageUrl( KUrl( xml.readElementText() ) );
+      }
+    } else if ( xml.isEndElement() && xml.name() == "user" ) {
+      return user;
+    }
+  }
+  
+  return user;
 }

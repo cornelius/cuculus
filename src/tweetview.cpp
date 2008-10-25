@@ -27,11 +27,17 @@
 TweetView::TweetView()
 {
   QBoxLayout *topLayout = new QHBoxLayout( this );
+
+  QBoxLayout *picLayout = new QVBoxLayout( this );
+  topLayout->addLayout( picLayout );
   
   QLabel *label = new QLabel;
-  topLayout->addWidget( label );
+  picLayout->addWidget( label );
   QString picPath = KStandardDirs::locate( "appdata", "attica_person.png" );
   label->setPixmap( QPixmap( picPath ) );
+
+  m_nameLabel = new QLabel;
+  picLayout->addWidget( m_nameLabel );
 
   m_label = new QLabel( "This will be a tweet." );
   topLayout->addWidget( m_label, 1 ); 
@@ -51,6 +57,8 @@ void TweetView::setStatus( const Cuculus::Status &status )
   txt += "</qt>";
 
   m_label->setText( txt );
+
+  m_nameLabel->setText( status.user().name() );
 }
 
 QString TweetView::timeAgoInWords( const QDateTime &dt )

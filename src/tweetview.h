@@ -37,6 +37,7 @@ class TweetView : public QWidget
     QString timeAgoInWords( const QDateTime &dt );
 
   private:
+    QLabel *m_nameLabel;
     QLabel *m_label;
 };
 

@@ -19,50 +19,50 @@
     USA.
 */
 
-#include "status.h"
+#include "user.h"
 
 using namespace Cuculus;
 
-Status::Status()
+User::User()
 {
 }
 
-void Status::setText( const QString &u )
+void User::setId( const QString &u )
 {
-  m_text = u;
+  m_id = u;
 }
 
-QString Status::text() const
+QString User::id() const
 {
-  return m_text;
+  return m_id;
 }
 
-void Status::setCreatedAt( const QDateTime &d )
+void User::setName( const QString &u )
 {
-  m_createdAt = d;
+  m_name = u;
 }
 
-QDateTime Status::createdAt() const
+QString User::name() const
 {
-  return m_createdAt;
+  return m_name;
 }
 
-void Status::setSource( const QString &c )
+void User::setScreenName( const QString &u )
 {
-  m_source = c;
+  m_screenName = u;
 }
 
-QString Status::source() const
+QString User::screenName() const
 {
-  return m_source;
+  return m_screenName;
 }
 
-void Status::setUser( const User &u )
+void User::setImageUrl( const KUrl &d )
 {
-  m_user = u;
+  m_imageUrl = d;
 }
 
-User Status::user() const
+KUrl User::imageUrl() const
 {
-  return m_user;
+  return m_imageUrl;
 }

@@ -23,14 +23,14 @@
 
 #include "cuculusclient_export.h"
 
+#include "user.h"
+
 #include <kurl.h>
 
 #include <QtCore>
 #include <QPixmap>
 
 namespace Cuculus {
-
-class StatusListJob;
 
 class CUCULUS_EXPORT Status
 {
@@ -48,10 +48,14 @@ class CUCULUS_EXPORT Status
     void setSource( const QString & );
     QString source() const;
 
+    void setUser( const User & );
+    User user() const;
+
   private:
     QString m_text;
     QDateTime m_createdAt;
     QString m_source;
+    User m_user;
 };
 
 }
