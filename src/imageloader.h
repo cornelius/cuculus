@@ -18,32 +18,38 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301,
     USA.
 */
-#ifndef TWEETVIEW_H
-#define TWEETVIEW_H
+#ifndef IMAGELOADER_H
+#define IMAGELOADER_H
 
-#include "status.h"
+#include <kurl.h>
+#include <kjob.h>
+#include <kio/job.h>
 
-#include <QtGui>
+#include <QObject>
+#include <QMap>
 
-using namespace Cuculus;
-
-class TweetView : public QWidget
+class ImageLoader : public QObject
 {
     Q_OBJECT
   public:
-    TweetView();
+    ImageLoader();
 
-    void setStatus( const Status & );
-
-    QString timeAgoInWords( const QDateTime &dt );
+    static ImageLoader *load( const KUrl & );
+    
+    void setUrl( const KUrl & );
+    KUrl url() const;
+    
+  signals:
+    void loaded( const QPixmap & );
+    void error( const QString &text );
 
   protected slots:
-    void setUserImage( const QPixmap & );
+    void slotResult( KJob *job );
+    void slotData( KIO::Job *job, const QByteArray &data );
 
   private:
-    QLabel *m_imageLabel;
-    QLabel *m_nameLabel;
-    QLabel *m_label;
+    KUrl m_url;
+    QByteArray m_data;
 };
 
 #endif

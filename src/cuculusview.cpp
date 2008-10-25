@@ -139,6 +139,8 @@ void CuculusView::sendTweet()
   Cuculus::PostJob *job = Cuculus::TwitterApi::postUpdate( text );
   connect( job, SIGNAL( result( KJob * ) ),
     SLOT( slotSendTweetResult( KJob * ) ) );
+
+  m_tweetEdit->clear();
 }
 
 void CuculusView::slotSendTweetResult( KJob *j )

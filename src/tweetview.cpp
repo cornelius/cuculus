@@ -21,6 +21,8 @@
 
 #include "tweetview.h"
 
+#include "imageloader.h"
+
 #include "kstandarddirs.h"
 #include "klocale.h"
 
@@ -33,10 +35,10 @@ TweetView::TweetView()
   QBoxLayout *picLayout = new QVBoxLayout();
   topLayout->addLayout( picLayout );
   
-  QLabel *label = new QLabel;
-  picLayout->addWidget( label );
+  m_imageLabel = new QLabel;
+  picLayout->addWidget( m_imageLabel );
   QString picPath = KStandardDirs::locate( "appdata", "attica_person.png" );
-  label->setPixmap( QPixmap( picPath ) );
+  m_imageLabel->setPixmap( QPixmap( picPath ) );
 
   m_nameLabel = new QLabel;
   picLayout->addWidget( m_nameLabel );
@@ -61,6 +63,15 @@ void TweetView::setStatus( const Cuculus::Status &status )
   m_label->setText( txt );
 
   m_nameLabel->setText( status.user().name() );
+
+  ImageLoader *loader = ImageLoader::load( status.user().imageUrl() );
+  connect( loader, SIGNAL( loaded( const QPixmap & ) ),
+    SLOT( setUserImage( const QPixmap & ) ) );
+}
+
+void TweetView::setUserImage( const QPixmap &pixmap )
+{
+  m_imageLabel->setPixmap( pixmap );
 }
 
 QString TweetView::timeAgoInWords( const QDateTime &dt )
