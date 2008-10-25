@@ -11,11 +11,20 @@
 #include "twitterapi.h"
 
 #include <klocale.h>
+#include <kglobal.h>
 
 CuculusView::CuculusView(QWidget *)
 {
+  setObjectName( "view" );
+
   QBoxLayout *topLayout = new QVBoxLayout( this );
 
+  m_timeLabel = new QLabel;
+  topLayout->addWidget( m_timeLabel );
+  m_timeLabel->setAlignment( Qt::AlignCenter );
+
+  connect( &m_timeLabelTimer, SIGNAL( timeout() ), SLOT( updateTimeLabel() ) );
+  m_timeLabelTimer.start( 60 * 1000 );
 
   QBoxLayout *countLayout = new QHBoxLayout;
   topLayout->addLayout( countLayout );
@@ -58,6 +67,7 @@ CuculusView::CuculusView(QWidget *)
   
   updateEditCount();
   checkUpdateButton();
+  updateTimeLabel();
   
   settingsChanged();
   setAutoFillBackground(true);
@@ -85,6 +95,12 @@ void CuculusView::updateEditCount()
 {
   m_countLabel->setText(
     QString::number( 140 - m_tweetEdit->toPlainText().length() ) );
+}
+
+void CuculusView::updateTimeLabel()
+{
+  m_timeLabel->setText( KGlobal::locale()->formatDateTime(
+    QDateTime::currentDateTime(), KLocale::LongDate ) );
 }
 
 void CuculusView::checkUpdateButton()

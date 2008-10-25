@@ -54,6 +54,7 @@ Status::List StatusParser::parseList( const QString &xmlString )
             QString timestampString = xml.readElementText();
             QDateTime timestamp = QDateTime::fromString( timestampString,
                "ddd MMM d h:mm:ss +0000 yyyy");
+            timestamp.setTimeSpec( Qt::UTC );
             status.setCreatedAt( timestamp );
           } else if ( xml.name() == "source" ) {
             status.setSource( xml.readElementText() );

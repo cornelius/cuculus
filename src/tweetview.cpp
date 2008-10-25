@@ -26,9 +26,11 @@
 
 TweetView::TweetView()
 {
+  setObjectName( "tweetView" );
+
   QBoxLayout *topLayout = new QHBoxLayout( this );
 
-  QBoxLayout *picLayout = new QVBoxLayout( this );
+  QBoxLayout *picLayout = new QVBoxLayout();
   topLayout->addLayout( picLayout );
   
   QLabel *label = new QLabel;
@@ -65,7 +67,7 @@ QString TweetView::timeAgoInWords( const QDateTime &dt )
 {
   QString txt;
 
-  QDateTime now = QDateTime::currentDateTime();
+  QDateTime now = QDateTime::currentDateTime().toUTC();
 
   int daysAgo = dt.daysTo( now );
   if ( daysAgo == 0 ) {
@@ -75,10 +77,11 @@ QString TweetView::timeAgoInWords( const QDateTime &dt )
     } else if ( minutesAgo < 60 ) {
       txt = i18n("%1 minutes ago").arg( minutesAgo );
     } else {
-      txt = i18n("Today %1").arg( dt.time().toString( "h:mm" ) );
+      txt = i18n("Today %1").arg( dt.toLocalTime().time().toString( "h:mm" ) );
     }
   } else if ( daysAgo == 1 ) {
-    txt = i18n("Yesterday %1").arg( dt.time().toString() );     
+    txt = i18n("Yesterday %1").arg(
+      dt.toLocalTime().time().toString( "h:mm" ) );
   } else {
     txt = i18n("%1 days ago").arg( daysAgo );
   }
