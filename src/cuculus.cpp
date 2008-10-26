@@ -49,11 +49,6 @@ void Cuculus::setupActions()
     KStandardAction::quit(qApp, SLOT(closeAllWindows()), actionCollection());
 
     KStandardAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
-
-    // custom menu and menu item - the slot is in the class cuculusView
-    KAction *custom = new KAction(KIcon("colorize"), i18n("Swi&tch Colors"), this);
-    actionCollection()->addAction( QLatin1String("switch_action"), custom );
-    connect(custom, SIGNAL(triggered(bool)), m_view, SLOT(switchColors()));
 }
 
 void Cuculus::optionsPreferences()
