@@ -67,10 +67,15 @@ CuculusView::CuculusView(QWidget *)
   QString picPath = KStandardDirs::locate( "appdata", "1uparrow.png" );
   m_upButton->setIcon( QPixmap( picPath ) );
   topLayout->addWidget( m_upButton );
+
+  QGridLayout *tweetLayout = new QGridLayout;
+  topLayout->addLayout( tweetLayout );
+  tweetLayout->setColumnStretch( 1, 1 );
   
   for( int i = 0; i < m_pageSize ; ++i ) {
     TweetView *view = new TweetView;
-    topLayout->addWidget( view );
+    tweetLayout->addWidget( view->personWidget(), i, 0, Qt::AlignHCenter );
+    tweetLayout->addWidget( view->tweetWidget(), i, 1 );
     m_tweetViews.append( view );
   }
 

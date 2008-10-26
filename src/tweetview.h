@@ -27,7 +27,7 @@
 
 using namespace Cuculus;
 
-class TweetView : public QWidget
+class TweetView : public QObject
 {
     Q_OBJECT
   public:
@@ -37,10 +37,16 @@ class TweetView : public QWidget
 
     QString timeAgoInWords( const QDateTime &dt );
 
+    QWidget *tweetWidget() const;
+    QWidget *personWidget() const;
+
   protected slots:
     void setUserImage( const QPixmap & );
 
   private:
+    QWidget *m_tweetWidget;
+    QWidget *m_personWidget;
+  
     QLabel *m_imageLabel;
     QLabel *m_nameLabel;
     QLabel *m_label;

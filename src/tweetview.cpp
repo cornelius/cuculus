@@ -30,21 +30,24 @@ TweetView::TweetView()
 {
   setObjectName( "tweetView" );
 
-  QBoxLayout *topLayout = new QHBoxLayout( this );
 
-  QBoxLayout *picLayout = new QVBoxLayout();
-  topLayout->addLayout( picLayout );
+  m_personWidget = new QWidget;
+
+  QBoxLayout *picLayout = new QVBoxLayout( m_personWidget );
   
   m_imageLabel = new QLabel;
+  m_imageLabel->setAlignment( Qt::AlignHCenter );
   picLayout->addWidget( m_imageLabel );
   QString picPath = KStandardDirs::locate( "appdata", "attica_person.png" );
   m_imageLabel->setPixmap( QPixmap( picPath ) );
 
   m_nameLabel = new QLabel;
+  m_nameLabel->setAlignment( Qt::AlignHCenter );
   picLayout->addWidget( m_nameLabel );
 
+
   m_label = new QLabel( "This will be a tweet." );
-  topLayout->addWidget( m_label, 1 ); 
+  m_tweetWidget = m_label;
 }
 
 void TweetView::setStatus( const Cuculus::Status &status )
@@ -98,4 +101,14 @@ QString TweetView::timeAgoInWords( const QDateTime &dt )
   }
 
   return txt;
+}
+
+QWidget *TweetView::tweetWidget() const
+{
+  return m_tweetWidget;
+}
+
+QWidget *TweetView::personWidget() const
+{
+  return m_personWidget;
 }
