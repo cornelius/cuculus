@@ -29,6 +29,24 @@ UserParser::UserParser()
 {
 }
 
+User::List UserParser::parseList( const QString &xmlString )
+{
+  User::List userList;
+  
+  QXmlStreamReader xml( xmlString );
+  
+  while ( !xml.atEnd() ) {
+    xml.readNext();
+    
+    if ( xml.isStartElement() && xml.name() == "user" ) {
+      User user = parse( xml );
+      userList.append( user );
+    }
+  }
+  
+  return userList;
+}
+
 User UserParser::parse( QXmlStreamReader &xml )
 {
   User user;

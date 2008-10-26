@@ -22,6 +22,7 @@
 #include "cuculusclient_export.h"
 
 #include "statuslistjob.h"
+#include "userlistjob.h"
 #include "postjob.h"
 
 namespace Cuculus {
@@ -35,12 +36,16 @@ class CUCULUS_EXPORT TwitterApi
     TwitterApi();
 
     static StatusListJob *requestFriendsTimeline();
+
     static PostJob *postUpdate( const QString &message );
+
+    static UserListJob *requestFriends();
 
   protected:
     static KUrl createUrl( const QString &path );
   
     static StatusListJob *doRequestStatusList( const KUrl & );
+    static UserListJob *doRequestUserList( const KUrl & );
 };
 
 }

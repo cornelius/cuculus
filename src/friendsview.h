@@ -18,24 +18,25 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301,
     USA.
 */
-#ifndef CUCULUS_USERPARSER_H
-#define CUCULUS_USERPARSER_H
+#ifndef FRIENDSVIEW_H
+#define FRIENDSVIEW_H
 
-#include "user.h"
+#include <QtGui>
 
-class QXmlStreamReader;
+class KJob;
 
-namespace Cuculus {
-
-class UserParser
+class FriendsView : public QWidget
 {
+    Q_OBJECT
   public:
-    UserParser();
+    FriendsView();
 
-    User parse( QXmlStreamReader &xml );
-    User::List parseList( const QString &xmlString );
+  protected slots:
+    void loadFriends();
+    void slotResult( KJob *j );
+
+  private:
+    QWidget *m_friendsList;
 };
-
-}
 
 #endif

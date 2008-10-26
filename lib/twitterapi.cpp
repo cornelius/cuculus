@@ -45,6 +45,13 @@ PostJob *TwitterApi::postUpdate( const QString &message )
   return job;
 }
 
+UserListJob *TwitterApi::requestFriends()
+{
+  // Broken, because API return 404 instead of 401. Reported issue 79.
+
+  KUrl url = createUrl( "statuses/friends.xml" );
+  return doRequestUserList( url );
+}
 
 KUrl TwitterApi::createUrl( const QString &path )
 {
@@ -56,6 +63,16 @@ KUrl TwitterApi::createUrl( const QString &path )
 StatusListJob *TwitterApi::doRequestStatusList( const KUrl &url )
 {
   StatusListJob *job = new StatusListJob();
+
+  job->setUrl( url );
+
+  job->start();
+  return job;
+}
+
+UserListJob *TwitterApi::doRequestUserList( const KUrl &url )
+{
+  UserListJob *job = new UserListJob();
 
   job->setUrl( url );
 

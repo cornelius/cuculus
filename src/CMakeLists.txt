@@ -6,6 +6,7 @@ set(cuculus_SRCS
    imageloader.cpp
    cuculusmodel.cpp
    tweetlistview.cpp
+   friendsview.cpp
  )
 
 kde4_add_ui_files(cuculus_SRCS prefs_base.ui)

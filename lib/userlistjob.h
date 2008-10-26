@@ -18,22 +18,43 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301,
     USA.
 */
-#ifndef CUCULUS_USERPARSER_H
-#define CUCULUS_USERPARSER_H
+#ifndef CUCULUS_USERLISTJOB_H
+#define CUCULUS_USERLISTJOB_H
 
 #include "user.h"
 
-class QXmlStreamReader;
+#include <kjob.h>
+
+namespace KIO {
+class Job;
+}
 
 namespace Cuculus {
 
-class UserParser
+class CUCULUS_EXPORT UserListJob : public KJob
 {
+    Q_OBJECT
   public:
-    UserParser();
+    UserListJob();
 
-    User parse( QXmlStreamReader &xml );
-    User::List parseList( const QString &xmlString );
+    void setUrl( const KUrl & );
+
+    void start();
+
+    User::List userList() const;
+    
+  protected slots:
+    void doWork();
+
+    void slotJobResult( KJob *job );
+    void slotJobData( KIO::Job *job, const QByteArray &data );
+    
+  private:
+    KUrl m_url;
+    KIO::Job *m_job;
+    QByteArray m_data;
+  
+    User::List m_userList;
 };
 
 }

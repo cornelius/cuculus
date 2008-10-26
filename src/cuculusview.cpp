@@ -7,6 +7,7 @@
 #include "cuculusview.h"
 
 #include "settings.h"
+#include "friendsview.h"
 
 #include "twitterapi.h"
 
@@ -21,7 +22,10 @@ CuculusView::CuculusView(QWidget *)
 
   m_model = new CuculusModel;
 
-  QBoxLayout *topLayout = new QVBoxLayout( this );
+  QBoxLayout *mainLayout = new QHBoxLayout( this );
+  
+  QBoxLayout *topLayout = new QVBoxLayout;
+  mainLayout->addLayout( topLayout );
 
   m_timeLabel = new QLabel;
   topLayout->addWidget( m_timeLabel );
@@ -78,6 +82,10 @@ CuculusView::CuculusView(QWidget *)
   picPath = KStandardDirs::locate( "appdata", "1downarrow.png" );
   m_downButton->setIcon( QPixmap( picPath ) );
   topLayout->addWidget( m_downButton );
+
+
+  FriendsView *friendsView = new FriendsView;
+  mainLayout->addWidget( friendsView );
 
   
   updateEditCount();

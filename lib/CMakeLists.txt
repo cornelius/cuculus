@@ -6,6 +6,7 @@ set(cuculusclient_SRCS
    postjob.cpp
    user.cpp
    userparser.cpp
+   userlistjob.cpp
 )
 
 kde4_add_library(cuculusclient SHARED ${cuculusclient_SRCS})
