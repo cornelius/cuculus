@@ -15,7 +15,7 @@
 #include <kstandarddirs.h>
 
 CuculusView::CuculusView(QWidget *)
-  : m_pageSize( 5 ), m_currentTweetIndex( 0 )
+  : m_currentTweetIndex( 0 )
 {
   setObjectName( "view" );
 
@@ -68,16 +68,9 @@ CuculusView::CuculusView(QWidget *)
   m_upButton->setIcon( QPixmap( picPath ) );
   topLayout->addWidget( m_upButton );
 
-  QGridLayout *tweetLayout = new QGridLayout;
-  topLayout->addLayout( tweetLayout );
-  tweetLayout->setColumnStretch( 1, 1 );
-  
-  for( int i = 0; i < m_pageSize ; ++i ) {
-    TweetView *view = new TweetView;
-    tweetLayout->addWidget( view->personWidget(), i, 0, Qt::AlignHCenter );
-    tweetLayout->addWidget( view->tweetWidget(), i, 1 );
-    m_tweetViews.append( view );
-  }
+  m_tweetsView = new TweetListView;
+  topLayout->addWidget( m_tweetsView );
+  m_tweetsView->setStyleSheet("background-color: white");
 
   m_downButton = new QPushButton;
   connect( m_downButton, SIGNAL( clicked() ), SLOT( pageDown() ) );
@@ -140,7 +133,7 @@ void CuculusView::updatePageButtons()
 {
   m_upButton->setEnabled( m_currentTweetIndex > 0 );
   m_downButton->setEnabled(
-    m_currentTweetIndex + m_pageSize < m_model->count() );
+    m_currentTweetIndex + m_tweetsView->pageSize() < m_model->count() );
 }
 
 void CuculusView::slotResult( KJob *j )
@@ -185,9 +178,10 @@ void CuculusView::slotSendTweetResult( KJob *j )
 void CuculusView::showPage()
 {
   int tweetViewCount = 0;
-  for( int i = m_currentTweetIndex; i< m_currentTweetIndex + m_pageSize; ++i ) {
+  for( int i = m_currentTweetIndex;
+       i < m_currentTweetIndex + m_tweetsView->pageSize(); ++i ) {
     Cuculus::Status status = m_model->status( i );
-    m_tweetViews[ tweetViewCount ]->setStatus( status );
+    m_tweetsView->setStatus( tweetViewCount, status );
     
     tweetViewCount++;
   }
@@ -195,7 +189,7 @@ void CuculusView::showPage()
 
 void CuculusView::pageUp()
 {
-  m_currentTweetIndex -= m_pageSize;
+  m_currentTweetIndex -= m_tweetsView->pageSize();
   if ( m_currentTweetIndex < 0 ) m_currentTweetIndex = 0;
   
   showPage();
@@ -205,7 +199,7 @@ void CuculusView::pageUp()
 
 void CuculusView::pageDown()
 {
-  m_currentTweetIndex += m_pageSize;
+  m_currentTweetIndex += m_tweetsView->pageSize();
   
   showPage();
   

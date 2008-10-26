@@ -6,7 +6,7 @@
 #ifndef CUCULUSVIEW_H
 #define CUCULUSVIEW_H
 
-#include "tweetview.h"
+#include "tweetlistview.h"
 #include "cuculusmodel.h"
 
 #include <kjob.h>
@@ -81,9 +81,8 @@ class CuculusView : public QWidget
     QTextEdit *m_tweetEdit;
     QPushButton *m_upButton;
     QPushButton *m_downButton;
-    QList<TweetView *> m_tweetViews;
+    TweetListView *m_tweetsView;
 
-    int m_pageSize;
     int m_currentTweetIndex;
 
     QTimer m_timeLabelTimer;
