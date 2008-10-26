@@ -22,6 +22,37 @@
 #include "imageloader.h"
 
 #include <QDebug>
+#include <QTimer>
+
+ImageLoader::Cache *ImageLoader::Cache::m_self = 0;
+
+ImageLoader::Cache *ImageLoader::Cache::self()
+{
+  if ( !m_self ) {
+    m_self = new Cache();
+  }
+  return m_self;
+}
+
+ImageLoader::Cache::Cache()
+{
+}
+
+bool ImageLoader::Cache::hasPixmap( const KUrl &url )
+{
+  return m_pixmaps.contains( url );
+}
+
+QPixmap ImageLoader::Cache::pixmap( const KUrl &url )
+{
+  return m_pixmaps.value( url );
+}
+
+void ImageLoader::Cache::setPixmap( const KUrl &url, const QPixmap &pixmap )
+{
+  m_pixmaps.insert( url, pixmap );
+}
+
 
 ImageLoader::ImageLoader()
 {
@@ -29,16 +60,18 @@ ImageLoader::ImageLoader()
 
 ImageLoader *ImageLoader::load( const KUrl &url )
 {
-  // TODO: Retrieve cached pixmap if available
-
   ImageLoader *loader = new ImageLoader;
   loader->setUrl( url );
 
-  KJob *job = KIO::get( url, KIO::NoReload, KIO::HideProgressInfo );
-  QObject::connect( job, SIGNAL( result( KJob * ) ), loader,
-    SLOT( slotResult( KJob * ) ) );
-  QObject::connect( job, SIGNAL( data( KIO::Job *, const QByteArray & ) ),
-    loader, SLOT( slotData( KIO::Job *, const QByteArray & ) ) );
+  if ( Cache::self()->hasPixmap( url ) ) {
+    QTimer::singleShot( 0, loader, SLOT( emitCached() ) );
+  } else {
+    KJob *job = KIO::get( url, KIO::NoReload, KIO::HideProgressInfo );
+    QObject::connect( job, SIGNAL( result( KJob * ) ), loader,
+      SLOT( slotResult( KJob * ) ) );
+    QObject::connect( job, SIGNAL( data( KIO::Job *, const QByteArray & ) ),
+      loader, SLOT( slotData( KIO::Job *, const QByteArray & ) ) );
+  }
 
   return loader;
 }
@@ -53,6 +86,11 @@ KUrl ImageLoader::url() const
   return m_url;
 }
 
+void ImageLoader::emitCached()
+{
+  emit loaded( Cache::self()->pixmap( url() ) );
+}
+
 void ImageLoader::slotResult( KJob *job )
 {
   if ( job->error() ) {
@@ -63,7 +101,7 @@ void ImageLoader::slotResult( KJob *job )
     if ( !pic.loadFromData( m_data ) ) {
       qWarning() << "Unable to parse image data" << url();
     } else {
-      // TODO: Cache pixmap
+      Cache::self()->setPixmap( url(), pic );
       emit loaded( pic );
     }
   }

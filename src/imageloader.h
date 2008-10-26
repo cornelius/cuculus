@@ -32,6 +32,22 @@ class ImageLoader : public QObject
 {
     Q_OBJECT
   public:
+    class Cache {
+      public:
+        static Cache *self();
+        
+        bool hasPixmap( const KUrl & );
+        QPixmap pixmap( const KUrl & );
+        void setPixmap( const KUrl &, const QPixmap & );
+        
+      private:
+        Cache();
+        
+        static Cache *m_self;
+
+        QMap<KUrl,QPixmap> m_pixmaps;
+    };
+  
     ImageLoader();
 
     static ImageLoader *load( const KUrl & );
@@ -46,6 +62,8 @@ class ImageLoader : public QObject
   protected slots:
     void slotResult( KJob *job );
     void slotData( KIO::Job *job, const QByteArray &data );
+
+    void emitCached();
 
   private:
     KUrl m_url;
