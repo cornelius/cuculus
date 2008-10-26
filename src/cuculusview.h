@@ -7,6 +7,7 @@
 #define CUCULUSVIEW_H
 
 #include "tweetview.h"
+#include "cuculusmodel.h"
 
 #include <kjob.h>
 
@@ -49,10 +50,17 @@ class CuculusView : public QWidget
      */
     void signalChangeCaption(const QString& text);
 
+  protected:
+    void showPage();
+
   protected slots:
     void updateEditCount();
     void checkUpdateButton();
     void updateTimeLabel();
+    void updatePageButtons();
+
+    void pageUp();
+    void pageDown();
 
     void updateTimeline();
     void sendTweet();
@@ -65,11 +73,18 @@ class CuculusView : public QWidget
     void settingsChanged();
 
   private:
+    CuculusModel *m_model;
+  
     QLabel *m_timeLabel;
     QLabel *m_countLabel;
     QPushButton *m_updateButton;
     QTextEdit *m_tweetEdit;
+    QPushButton *m_upButton;
+    QPushButton *m_downButton;
     QList<TweetView *> m_tweetViews;
+
+    int m_pageSize;
+    int m_currentTweetIndex;
 
     QTimer m_timeLabelTimer;
 };

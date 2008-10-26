@@ -12,10 +12,14 @@
 
 #include <klocale.h>
 #include <kglobal.h>
+#include <kstandarddirs.h>
 
 CuculusView::CuculusView(QWidget *)
+  : m_pageSize( 5 ), m_currentTweetIndex( 0 )
 {
   setObjectName( "view" );
+
+  m_model = new CuculusModel;
 
   QBoxLayout *topLayout = new QVBoxLayout( this );
 
@@ -57,17 +61,30 @@ CuculusView::CuculusView(QWidget *)
   updateLayout->addWidget( button );
   connect( button, SIGNAL( clicked() ), SLOT( updateTimeline() ) );
 
+
+  m_upButton = new QPushButton;
+  connect( m_upButton, SIGNAL( clicked() ), SLOT( pageUp() ) );
+  QString picPath = KStandardDirs::locate( "appdata", "1uparrow.png" );
+  m_upButton->setIcon( QPixmap( picPath ) );
+  topLayout->addWidget( m_upButton );
   
-  for( int i = 0; i < 5; ++i ) {
+  for( int i = 0; i < m_pageSize ; ++i ) {
     TweetView *view = new TweetView;
     topLayout->addWidget( view );
     m_tweetViews.append( view );
   }
 
+  m_downButton = new QPushButton;
+  connect( m_downButton, SIGNAL( clicked() ), SLOT( pageDown() ) );
+  picPath = KStandardDirs::locate( "appdata", "1downarrow.png" );
+  m_downButton->setIcon( QPixmap( picPath ) );
+  topLayout->addWidget( m_downButton );
+
   
   updateEditCount();
   checkUpdateButton();
   updateTimeLabel();
+  updatePageButtons();
   
   settingsChanged();
   setAutoFillBackground(true);
@@ -114,19 +131,24 @@ void CuculusView::updateTimeline()
   connect( job, SIGNAL( result( KJob * ) ), SLOT( slotResult( KJob * ) ) );
 }
 
+void CuculusView::updatePageButtons()
+{
+  m_upButton->setEnabled( m_currentTweetIndex > 0 );
+  m_downButton->setEnabled(
+    m_currentTweetIndex + m_pageSize < m_model->count() );
+}
+
 void CuculusView::slotResult( KJob *j )
 {
   if ( j->error() ) {
     qDebug() << "Error" << j->errorText();
   } else {
     Cuculus::StatusListJob *job = static_cast<Cuculus::StatusListJob *>( j );
-    int i = 0;
-    foreach( Cuculus::Status status, job->statusList() ) {
-      qDebug() << "STATUS" << status.text();
-      m_tweetViews[ i ]->setStatus( status );
-      ++i;
-      if ( i >= m_tweetViews.size() ) break;
-    }
+
+    m_model->addStatuses( job->statusList() );
+    updatePageButtons();
+
+    showPage();
   }
 }
 
@@ -153,6 +175,36 @@ void CuculusView::slotSendTweetResult( KJob *j )
     qDebug() << "SUCCESS SENDING TWEET";
     updateTimeline();
   }
+}
+
+void CuculusView::showPage()
+{
+  int tweetViewCount = 0;
+  for( int i = m_currentTweetIndex; i< m_currentTweetIndex + m_pageSize; ++i ) {
+    Cuculus::Status status = m_model->status( i );
+    m_tweetViews[ tweetViewCount ]->setStatus( status );
+    
+    tweetViewCount++;
+  }
+}
+
+void CuculusView::pageUp()
+{
+  m_currentTweetIndex -= m_pageSize;
+  if ( m_currentTweetIndex < 0 ) m_currentTweetIndex = 0;
+  
+  showPage();
+  
+  updatePageButtons();
+}
+
+void CuculusView::pageDown()
+{
+  m_currentTweetIndex += m_pageSize;
+  
+  showPage();
+  
+  updatePageButtons();
 }
 
 #include "cuculusview.moc"
