@@ -52,6 +52,8 @@ TweetView::TweetView()
 
 void TweetView::setStatus( const Cuculus::Status &status )
 {
+  m_status = status;
+
   QString txt = "<qt>";
   
   txt += status.text();
@@ -70,6 +72,11 @@ void TweetView::setStatus( const Cuculus::Status &status )
   ImageLoader *loader = ImageLoader::load( status.user().imageUrl() );
   connect( loader, SIGNAL( loaded( const QPixmap & ) ),
     SLOT( setUserImage( const QPixmap & ) ) );
+}
+
+Status TweetView::status() const
+{
+  return m_status;
 }
 
 void TweetView::setUserImage( const QPixmap &pixmap )

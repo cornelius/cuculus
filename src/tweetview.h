@@ -34,6 +34,7 @@ class TweetView : public QObject
     TweetView();
 
     void setStatus( const Status & );
+    Status status() const;
 
     QString timeAgoInWords( const QDateTime &dt );
 
@@ -50,6 +51,8 @@ class TweetView : public QObject
     QLabel *m_imageLabel;
     QLabel *m_nameLabel;
     QLabel *m_label;
+
+    Status m_status;
 };
 
 #endif

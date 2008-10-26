@@ -41,5 +41,15 @@ int TweetListView::pageSize() const
 
 void TweetListView::setStatus( int index, Status status )
 {
-  m_tweetViews[ index ]->setStatus( status );
+  TweetView *currentView = m_tweetViews[ index ];
+
+  currentView->setStatus( status );
+  
+  if ( index > 0 &&
+       currentView->status().user().id() ==
+       m_tweetViews[ index - 1 ]->status().user().id() ) {
+    currentView->personWidget()->hide();
+  } else {
+    currentView->personWidget()->show();
+  }
 }

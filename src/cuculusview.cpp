@@ -43,6 +43,7 @@ CuculusView::CuculusView(QWidget *)
 
 
   m_tweetEdit = new QTextEdit;
+  m_tweetEdit->setFixedHeight( 60 );
   topLayout->addWidget( m_tweetEdit );
   connect( m_tweetEdit, SIGNAL( textChanged() ), SLOT( updateEditCount() ) );
   connect( m_tweetEdit, SIGNAL( textChanged() ), SLOT( checkUpdateButton() ) );
@@ -69,7 +70,7 @@ CuculusView::CuculusView(QWidget *)
   topLayout->addWidget( m_upButton );
 
   m_tweetsView = new TweetListView;
-  topLayout->addWidget( m_tweetsView );
+  topLayout->addWidget( m_tweetsView, 1 );
   m_tweetsView->setStyleSheet("background-color: white");
 
   m_downButton = new QPushButton;
