@@ -3,9 +3,8 @@
  *
  * Copyright (C) 2008 Cornelius Schumacher <schumacher@kde.org>
  */
-#ifndef CUCULUS_H
-#define CUCULUS_H
-
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
 #include <kxmlguiwindow.h>
 
@@ -24,19 +23,19 @@ class KUrl;
  * @author Cornelius Schumacher <schumacher@kde.org>
  * @version 0.1
  */
-class Cuculus : public KXmlGuiWindow
+class MainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
   public:
     /**
      * Default Constructor
      */
-    Cuculus();
+    MainWindow();
 
     /**
      * Default Destructor
      */
-    virtual ~Cuculus();
+    virtual ~MainWindow();
 
   private slots:
     void optionsPreferences();

@@ -1,5 +1,5 @@
 set(cuculus_SRCS
-   cuculus.cpp
+   mainwindow.cpp
    main.cpp
    cuculusview.cpp
    tweetview.cpp

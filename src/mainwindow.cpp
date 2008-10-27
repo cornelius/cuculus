@@ -4,7 +4,7 @@
  * Copyright (C) 2008 Cornelius Schumacher <schumacher@kde.org>
  */
 
-#include "cuculus.h"
+#include "mainwindow.h"
 
 #include "cuculusview.h"
 #include "settings.h"
@@ -22,7 +22,7 @@
 
 #include <KDE/KLocale>
 
-Cuculus::Cuculus()
+MainWindow::MainWindow()
     : KXmlGuiWindow(),
       m_printer(0)
 {
@@ -40,18 +40,18 @@ Cuculus::Cuculus()
   setupGUI();
 }
 
-Cuculus::~Cuculus()
+MainWindow::~MainWindow()
 {
 }
 
-void Cuculus::setupActions()
+void MainWindow::setupActions()
 {
     KStandardAction::quit(qApp, SLOT(closeAllWindows()), actionCollection());
 
     KStandardAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
 }
 
-void Cuculus::optionsPreferences()
+void MainWindow::optionsPreferences()
 {
     // The preference dialog is derived from prefs_base.ui
     //
@@ -70,4 +70,4 @@ void Cuculus::optionsPreferences()
     dialog->show();
 }
 
-#include "cuculus.moc"
+#include "mainwindow.moc"

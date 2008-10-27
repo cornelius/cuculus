@@ -1,4 +1,4 @@
-#include "cuculus.h"
+#include "mainwindow.h"
 
 #include <kapplication.h>
 #include <kaboutdata.h>
@@ -22,12 +22,12 @@ int main(int argc, char **argv)
   KCmdLineArgs::addCmdLineOptions(options);
   KApplication app;
 
-  Cuculus *widget = new Cuculus;
+  MainWindow *widget = new MainWindow;
 
   // see if we are starting with session management
   if (app.isSessionRestored())
   {
-      RESTORE(Cuculus);
+      RESTORE(MainWindow);
   }
   else
   {
