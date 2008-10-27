@@ -39,7 +39,7 @@ int TweetListView::pageSize() const
   return 5;
 }
 
-void TweetListView::setStatus( int index, Status status )
+void TweetListView::setStatus( int index, Cuculus::Status status )
 {
   TweetView *currentView = m_tweetViews[ index ];
 

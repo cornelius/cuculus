@@ -26,8 +26,6 @@
 
 #include <QtGui>
 
-using namespace Cuculus;
-
 class TweetListView : public QWidget
 {
   public:
@@ -35,7 +33,7 @@ class TweetListView : public QWidget
 
     int pageSize() const;
 
-    void setStatus( int index, Status );
+    void setStatus( int index, Cuculus::Status );
 
   private:
     QList<TweetView *> m_tweetViews;

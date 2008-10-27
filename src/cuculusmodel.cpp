@@ -25,7 +25,7 @@ CuculusModel::CuculusModel()
 {
 }
 
-void CuculusModel::addStatuses( const Status::List &statuses )
+void CuculusModel::addStatuses( const Cuculus::Status::List &statuses )
 {
   m_statuses = statuses;
 }
@@ -35,7 +35,7 @@ int CuculusModel::count() const
   return m_statuses.count();
 }
 
-Status CuculusModel::status( int index )
+Cuculus::Status CuculusModel::status( int index )
 {
   return m_statuses[ index ];
 }

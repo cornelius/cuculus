@@ -23,21 +23,19 @@
 
 #include "status.h"
 
-using namespace Cuculus;
-
 class CuculusModel
 {
   public:
     CuculusModel();
 
-    void addStatuses( const Status::List & );
+    void addStatuses( const Cuculus::Status::List & );
 
     int count() const;
 
-    Status status( int index );  
+    Cuculus::Status status( int index );  
 
   private:
-    Status::List m_statuses;
+    Cuculus::Status::List m_statuses;
 };
 
 #endif

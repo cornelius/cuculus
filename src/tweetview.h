@@ -25,16 +25,14 @@
 
 #include <QtGui>
 
-using namespace Cuculus;
-
 class TweetView : public QObject
 {
     Q_OBJECT
   public:
     TweetView();
 
-    void setStatus( const Status & );
-    Status status() const;
+    void setStatus( const Cuculus::Status & );
+    Cuculus::Status status() const;
 
     QString timeAgoInWords( const QDateTime &dt );
 
@@ -52,7 +50,7 @@ class TweetView : public QObject
     QLabel *m_nameLabel;
     QLabel *m_label;
 
-    Status m_status;
+    Cuculus::Status m_status;
 };
 
 #endif

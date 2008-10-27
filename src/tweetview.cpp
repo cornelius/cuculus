@@ -74,7 +74,7 @@ void TweetView::setStatus( const Cuculus::Status &status )
     SLOT( setUserImage( const QPixmap & ) ) );
 }
 
-Status TweetView::status() const
+Cuculus::Status TweetView::status() const
 {
   return m_status;
 }
