@@ -95,6 +95,8 @@ CuculusView::CuculusView(QWidget *)
   
   settingsChanged();
   setAutoFillBackground(true);
+
+  updateTimeline();
 }
 
 CuculusView::~CuculusView()
