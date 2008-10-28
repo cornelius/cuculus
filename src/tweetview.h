@@ -48,7 +48,7 @@ class TweetView : public QObject
   
     QLabel *m_imageLabel;
     QLabel *m_nameLabel;
-    QLabel *m_label;
+    QLabel *m_text;
 
     Cuculus::Status m_status;
 };

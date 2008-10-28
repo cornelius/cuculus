@@ -46,8 +46,10 @@ TweetView::TweetView()
   picLayout->addWidget( m_nameLabel );
 
 
-  m_label = new QLabel( "This will be a tweet." );
-  m_tweetWidget = m_label;
+  m_text = new QLabel;
+  m_text->setOpenExternalLinks( true );
+  m_text->setText( "This will be a tweet." );
+  m_tweetWidget = m_text;
 }
 
 void TweetView::setStatus( const Cuculus::Status &status )
@@ -65,7 +67,7 @@ void TweetView::setStatus( const Cuculus::Status &status )
 
   txt += "</qt>";
 
-  m_label->setText( txt );
+  m_text->setText( txt );
 
   m_nameLabel->setText( status.user().name() );
 
