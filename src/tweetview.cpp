@@ -182,8 +182,14 @@ QWidget *TweetView::personWidget() const
 QString TweetView::autoLink( const QString &txt )
 {
   QString out = txt;
+
   QRegExp re( "(https?://)(.*)( |$)" );
   re.setMinimal( true );
   out.replace( re, "<a href=\"\\1\\2\">\\1\\2</a>\\3" );
+
+  re = QRegExp( "(^| )(www\\.)(.*)( |$)" );
+  re.setMinimal( true );
+  out.replace( re, "\\1<a href=\"http://\\2\\3\">\\2\\3</a>\\4" );
+
   return out;
 }
