@@ -57,8 +57,10 @@ void TweetView::setStatus( const Cuculus::Status &status )
   m_status = status;
 
   QString txt = "<qt>";
+
+  QString tweetText = autoLink( status.text() );
   
-  txt += status.text();
+  txt += tweetText;
   txt += "<br/>";
   txt += "<em>";
   txt += timeAgoInWords( status.createdAt() );
@@ -120,4 +122,68 @@ QWidget *TweetView::tweetWidget() const
 QWidget *TweetView::personWidget() const
 {
   return m_personWidget;
+}
+
+// From ActionView::TextHelper
+//
+//        AUTO_LINK_RE = %r{
+//                        (                          # leading text
+//                          <\w+.*?>|                # leading HTML tag, or
+//                          [^=!:'"/]|               # leading punctuation, or
+//                          ^                        # beginning of line
+//                        )
+//                        (
+//                          (?:https?://)|           # protocol spec, or
+//                          (?:www\.)                # www.*
+//                        )
+//                        (
+//                          [-\w]+                   # subdomain or domain
+//                          (?:\.[-\w]+)*            # remaining subdomains or domain
+//                          (?::\d+)?                # port
+//                          (?:/(?:(?:[~\w\+@%=\(\)-]|(?:[,.;:][^\s$]))+)?)* # path
+//                          (?:\?[\w\+@%&=.;-]+)?     # query string
+//                          (?:\#[\w\-]*)?           # trailing anchor
+//                        )
+//                        ([[:punct:]]|<|$|)       # trailing text
+//                       }x unless const_defined?(:AUTO_LINK_RE)
+//
+//        # Turns all urls into clickable links.  If a block is given, each url
+//        # is yielded and the result is used as the link text.
+//        def auto_link_urls(text, href_options = {})
+//          extra_options = tag_options(href_options.stringify_keys) || ""
+//          text.gsub(AUTO_LINK_RE) do
+//            all, a, b, c, d = $&, $1, $2, $3, $4
+//            if a =~ /<a\s/i # don't replace URL's that are already linked
+//              all
+//            else
+//              text = b + c
+//              text = yield(text) if block_given?
+//              %(#{a}<a href="#{b=="www."?"http://www.":b}#{c}"#{extra_options}>#{text}</a>#{d})
+//            end
+//          end
+//        end
+//
+//        # Turns all email addresses into clickable links.  If a block is given,
+//        # each email is yielded and the result is used as the link text.
+//        def auto_link_email_addresses(text)
+//          body = text.dup
+//          text.gsub(/([\w\.!#\$%\-+.]+@[A-Za-z0-9\-]+(\.[A-Za-z0-9\-]+)+)/) do
+//            text = $1
+//
+//            if body.match(/<a\b[^>]*>(.*)(#{Regexp.escape(text)})(.*)<\/a>/)
+//              text
+//            else
+//              display_text = (block_given?) ? yield(text) : text
+//              %{<a href="mailto:#{text}">#{display_text}</a>}
+//            end
+//          end
+//        end
+
+QString TweetView::autoLink( const QString &txt )
+{
+  QString out = txt;
+  QRegExp re( "(https?://)(.*)( |$)" );
+  re.setMinimal( true );
+  out.replace( re, "<a href=\"\\1\\2\">\\1\\2</a>\\3" );
+  return out;
 }

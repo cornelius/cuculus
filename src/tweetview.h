@@ -39,6 +39,8 @@ class TweetView : public QObject
     QWidget *tweetWidget() const;
     QWidget *personWidget() const;
 
+    static QString autoLink( const QString & );
+
   protected slots:
     void setUserImage( const QPixmap & );
 
