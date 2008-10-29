@@ -86,6 +86,8 @@ CuculusView::CuculusView(QWidget *)
 
   FriendsView *friendsView = new FriendsView;
   mainLayout->addWidget( friendsView );
+  // Hide for now as the API is buggy.
+  friendsView->hide();
 
   
   updateEditCount();
