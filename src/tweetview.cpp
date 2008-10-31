@@ -39,7 +39,8 @@ TweetView::TweetView()
   m_imageLabel->setAlignment( Qt::AlignHCenter );
   picLayout->addWidget( m_imageLabel );
   QString picPath = KStandardDirs::locate( "appdata", "attica_person.png" );
-  m_imageLabel->setPixmap( QPixmap( picPath ) );
+  m_defaultPic = QPixmap( picPath );
+  m_imageLabel->setPixmap( m_defaultPic );
 
   m_nameLabel = new QLabel;
   m_nameLabel->setAlignment( Qt::AlignHCenter );
@@ -71,6 +72,7 @@ void TweetView::setStatus( const Cuculus::Status &status )
 
   m_text->setText( txt );
 
+  m_imageLabel->setPixmap( m_defaultPic );
   m_nameLabel->setText( status.user().name() );
 
   ImageLoader *loader = ImageLoader::load( status.user().imageUrl() );

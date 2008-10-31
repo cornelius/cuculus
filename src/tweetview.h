@@ -53,6 +53,8 @@ class TweetView : public QObject
     QLabel *m_text;
 
     Cuculus::Status m_status;
+
+    QPixmap m_defaultPic;
 };
 
 #endif
