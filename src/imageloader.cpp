@@ -101,6 +101,9 @@ void ImageLoader::slotResult( KJob *job )
     if ( !pic.loadFromData( m_data ) ) {
       qWarning() << "Unable to parse image data" << url();
     } else {
+      if ( m_scaledSize.isValid() ) {
+        pic = pic.scaled( m_scaledSize );
+      }
       Cache::self()->setPixmap( url(), pic );
       emit loaded( pic );
     }
@@ -112,4 +115,9 @@ void ImageLoader::slotResult( KJob *job )
 void ImageLoader::slotData( KIO::Job *, const QByteArray &data )
 {
   m_data.append( data );
+}
+
+void ImageLoader::setScaledSize( const QSize &size )
+{
+  m_scaledSize = size;
 }

@@ -54,6 +54,8 @@ class ImageLoader : public QObject
     
     void setUrl( const KUrl & );
     KUrl url() const;
+
+    void setScaledSize( const QSize & );
     
   signals:
     void loaded( const QPixmap & );
@@ -68,6 +70,7 @@ class ImageLoader : public QObject
   private:
     KUrl m_url;
     QByteArray m_data;
+    QSize m_scaledSize;
 };
 
 #endif

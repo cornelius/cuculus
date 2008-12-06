@@ -49,11 +49,14 @@ class CUCULUS_EXPORT User
     void setImageUrl( const KUrl & );
     KUrl imageUrl() const;
 
+    KUrl miniImageUrl() const;
+
   private:
     QString m_id;
     QString m_name;
     QString m_screenName;
     KUrl m_imageUrl;
+    KUrl m_miniImageUrl;
 };
 
 }

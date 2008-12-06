@@ -22,6 +22,7 @@
 #include "friendsview.h"
 
 #include "twitterapi.h"
+#include "friendlabel.h"
 
 #include <klocale.h>
 
@@ -53,8 +54,9 @@ void FriendsView::slotResult( KJob *j )
     QBoxLayout *userLayout = new QVBoxLayout( m_friendsList );
 
     foreach( Cuculus::User user, job->userList() ) {
-      QLabel *label = new QLabel( user.name() );
+      FriendLabel *label = new FriendLabel();
       userLayout->addWidget( label );
+      label->setFriend( user );
     }
   }
 }

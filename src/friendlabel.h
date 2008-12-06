@@ -18,58 +18,23 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301,
     USA.
 */
+#ifndef FRIENDLABEL_H
+#define FRIENDLABEL_H
 
 #include "user.h"
 
-using namespace Cuculus;
+#include <QtGui>
 
-User::User()
+class FriendLabel : public QWidget
 {
-}
+  public:
+    FriendLabel();
 
-void User::setId( const QString &u )
-{
-  m_id = u;
-}
+    void setFriend( const Cuculus::User & );
+  
+  private:
+    QLabel *m_textLabel;
+    QLabel *m_pictureLabel;
+};
 
-QString User::id() const
-{
-  return m_id;
-}
-
-void User::setName( const QString &u )
-{
-  m_name = u;
-}
-
-QString User::name() const
-{
-  return m_name;
-}
-
-void User::setScreenName( const QString &u )
-{
-  m_screenName = u;
-}
-
-QString User::screenName() const
-{
-  return m_screenName;
-}
-
-void User::setImageUrl( const KUrl &d )
-{
-  m_imageUrl = d;
-  m_miniImageUrl = d;
-  m_miniImageUrl.setPath( m_miniImageUrl.path().replace("normal","mini") );
-}
-
-KUrl User::imageUrl() const
-{
-  return m_imageUrl;
-}
-
-KUrl User::miniImageUrl() const
-{
-  return m_miniImageUrl;
-}
+#endif

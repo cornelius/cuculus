@@ -19,57 +19,27 @@
     USA.
 */
 
-#include "user.h"
+#include "friendlabel.h"
 
-using namespace Cuculus;
+#include "imageloader.h"
 
-User::User()
+FriendLabel::FriendLabel()
 {
+  QBoxLayout *topLayout = new QHBoxLayout( this );
+  
+  m_pictureLabel = new QLabel;
+  topLayout->addWidget( m_pictureLabel );
+  
+  m_textLabel = new QLabel;
+  topLayout->addWidget( m_textLabel );
 }
 
-void User::setId( const QString &u )
+void FriendLabel::setFriend( const Cuculus::User &user )
 {
-  m_id = u;
-}
+  m_textLabel->setText( user.name() );
 
-QString User::id() const
-{
-  return m_id;
-}
-
-void User::setName( const QString &u )
-{
-  m_name = u;
-}
-
-QString User::name() const
-{
-  return m_name;
-}
-
-void User::setScreenName( const QString &u )
-{
-  m_screenName = u;
-}
-
-QString User::screenName() const
-{
-  return m_screenName;
-}
-
-void User::setImageUrl( const KUrl &d )
-{
-  m_imageUrl = d;
-  m_miniImageUrl = d;
-  m_miniImageUrl.setPath( m_miniImageUrl.path().replace("normal","mini") );
-}
-
-KUrl User::imageUrl() const
-{
-  return m_imageUrl;
-}
-
-KUrl User::miniImageUrl() const
-{
-  return m_miniImageUrl;
+  ImageLoader* imageLoader = ImageLoader::load( user.miniImageUrl() );
+  imageLoader->setScaledSize( QSize( 24, 24 ) );
+  connect( imageLoader, SIGNAL( loaded( const QPixmap & ) ),
+    m_pictureLabel, SLOT( setPixmap( const QPixmap & ) ) );
 }
