@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Akonadi Twitter Resource
+Comment=Resource for the showing Twitter friends
+Type=AkonadiResource
+Exec=akonadi_twitter_resource
+Icon=text-directory
+
+X-Akonadi-MimeTypes=text/directory
+X-Akonadi-Capabilities=Resource
+X-Akonadi-Identifier=akonadi_twitter_resource
