@@ -51,7 +51,7 @@ void TwitterResource::retrieveCollections()
 
 void TwitterResource::retrieveItems( const Akonadi::Collection &collection )
 {
-  kDebug() << "GET ITEMS";
+  KMessageBox::information( 0, "GET ITEMS" );
 
   Q_UNUSED( collection );
 
@@ -80,7 +80,8 @@ void TwitterResource::slotUserListResult( KJob *j )
     KABC::Addressee addressee;
     addressee.setNameFromString( user.name() );
     addressee.setNickName( user.screenName() );
-    addressee.setNote( "hallihallo" );
+    addressee.insertCustom( "twitterresource", "imageurl",
+      user.imageUrl().url() );
 
     item.setPayload<KABC::Addressee>( addressee );
 
@@ -94,11 +95,23 @@ bool TwitterResource::retrieveItem( const Akonadi::Item &item, const QSet<QByteA
 {
   Q_UNUSED( parts );
 
-  kDebug() << "GET ITEM";
+  KMessageBox::information( 0, "GET ITEM" );
 
   // TODO: this method is called when Akonadi wants more data for a given item.
   // You can only provide the parts that have been requested but you are allowed
   // to provide all in one go
+
+  QString avatarUrl = item.payload<KABC::Addressee>().custom( "twitterresource",
+    "imageurl" );
+
+  KJob *job = KIO::get( avatarUrl, KIO::NoReload,
+    KIO::HideProgressInfo );
+  connect( job, SIGNAL( result( KJob * ) ),
+    SLOT( slotAvatarJobResult( KJob * ) ) );
+  connect( job, SIGNAL( data( KIO::Job *, const QByteArray & ) ),
+    SLOT( slotAvatarJobData( KIO::Job *, const QByteArray & ) ) );    
+
+  m_jobs.insert( job, item );
 
 /*
   Twitter::PersonJob *job = Twitter::OcsApi::requestPerson( item.remoteId() );
@@ -122,7 +135,35 @@ bool TwitterResource::retrieveItem( const Akonadi::Item &item, const QSet<QByteA
   }
 
 */
-  return false;
+  return true;
+}
+
+void TwitterResource::slotAvatarJobResult( KJob *job )
+{
+  Akonadi::Item item = m_jobs.take( job );
+
+  KABC::Addressee addressee = item.payload<KABC::Addressee>();
+  
+  if ( job->error() ) {
+    qWarning() << "Error retrieving Avatar:" << job->errorText();
+  } else {
+    QPixmap pic;
+    if ( !pic.loadFromData( m_avatarData ) ) {
+      qWarning() << "Error parsing avatar image";
+    } else {
+      addressee.setPhoto( KABC::Picture( pic.toImage() ) );
+    }
+  }
+
+  Item newItem( item );
+  newItem.setPayload<KABC::Addressee>( addressee );
+
+  itemRetrieved( newItem );
+}
+
+void TwitterResource::slotAvatarJobData( KIO::Job *, const QByteArray &data )
+{
+  m_avatarData.append( data );
 }
 
 void TwitterResource::aboutToQuit()
