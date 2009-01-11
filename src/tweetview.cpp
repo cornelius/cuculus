@@ -75,7 +75,8 @@ void TweetView::setStatus( const Cuculus::Status &status )
   m_imageLabel->setPixmap( m_defaultPic );
   m_nameLabel->setText( status.user().name() );
 
-  ImageLoader *loader = ImageLoader::load( status.user().imageUrl() );
+  Cuculus::ImageLoader *loader =
+    Cuculus::ImageLoader::load( status.user().imageUrl() );
   connect( loader, SIGNAL( loaded( const QPixmap & ) ),
     SLOT( setUserImage( const QPixmap & ) ) );
 }

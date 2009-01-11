@@ -7,6 +7,7 @@ set(cuculusclient_SRCS
    user.cpp
    userparser.cpp
    userlistjob.cpp
+   imageloader.cpp
 )
 
 kde4_add_library(cuculusclient SHARED ${cuculusclient_SRCS})

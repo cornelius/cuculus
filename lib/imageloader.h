@@ -28,6 +28,8 @@
 #include <QObject>
 #include <QMap>
 
+namespace Cuculus {
+
 class ImageLoader : public QObject
 {
     Q_OBJECT
@@ -72,5 +74,7 @@ class ImageLoader : public QObject
     QByteArray m_data;
     QSize m_scaledSize;
 };
+
+}
 
 #endif

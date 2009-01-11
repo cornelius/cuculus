@@ -38,7 +38,8 @@ void FriendLabel::setFriend( const Cuculus::User &user )
 {
   m_textLabel->setText( user.name() );
 
-  ImageLoader* imageLoader = ImageLoader::load( user.miniImageUrl() );
+  Cuculus::ImageLoader* imageLoader =
+    Cuculus::ImageLoader::load( user.miniImageUrl() );
   imageLoader->setScaledSize( QSize( 24, 24 ) );
   connect( imageLoader, SIGNAL( loaded( const QPixmap & ) ),
     m_pictureLabel, SLOT( setPixmap( const QPixmap & ) ) );

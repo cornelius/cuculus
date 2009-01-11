@@ -3,7 +3,6 @@ set(cuculus_SRCS
    main.cpp
    cuculusview.cpp
    tweetview.cpp
-   imageloader.cpp
    cuculusmodel.cpp
    tweetlistview.cpp
    friendsview.cpp

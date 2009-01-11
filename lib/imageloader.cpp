@@ -24,6 +24,8 @@
 #include <QDebug>
 #include <QTimer>
 
+using namespace Cuculus;
+
 ImageLoader::Cache *ImageLoader::Cache::m_self = 0;
 
 ImageLoader::Cache *ImageLoader::Cache::self()
