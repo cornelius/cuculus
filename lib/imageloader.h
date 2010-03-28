@@ -21,6 +21,8 @@
 #ifndef IMAGELOADER_H
 #define IMAGELOADER_H
 
+#include "cuculusclient_export.h"
+
 #include <kurl.h>
 #include <kjob.h>
 #include <kio/job.h>
@@ -30,7 +32,7 @@
 
 namespace Cuculus {
 
-class ImageLoader : public QObject
+class CUCULUS_EXPORT ImageLoader : public QObject
 {
     Q_OBJECT
   public:
